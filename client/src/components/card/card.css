@@ -1,0 +1,66 @@
+.cardd {
+	border: 1px solid #858585cc;
+	border-top: 0px solid #858585cc;
+	border-left: 0px solid #858585cc;
+	border-right: 0px solid #858585cc;
+	width: 80%;
+	height: 175px;
+	display: grid;
+	grid-template-columns: 2% 36% 45% 15% 2%;
+	margin: 30px;
+  }
+  #colum-img-det{
+	display: grid;
+	grid-template-rows: 75% 25%;  }
+  .conText {
+	display: grid;
+	grid-template-rows: 23% 23% 23% 23%;
+  }
+  .text1,
+  .text2 {
+	font-family: "RocknRoll One", sans-serif;
+	height: 18px;
+	color: #354f52cc;
+	margin: 10px;
+  }
+  .text1 {
+	font-weight: bold;
+	color: green;
+  }
+  #btnCarrito{
+	background-color: transparent;
+	border: none;
+	font-size: 150%;
+  }
+  .texts {
+	display: grid;
+	grid-template-rows: 15% 50% 18% ;
+  }
+  .texts div {
+	margin: 2px;
+  }
+  .img {
+	height: 125px;
+	width: 160px;
+	border-radius: 20px;
+  }
+  .link {
+	text-decoration: none;
+  }
+  .cardPart3 {
+	display: grid;
+	grid-template-rows: 40% 5% 10%;
+  }
+  .Desc {
+	color: green;
+  }
+  .DescVal {
+	color: green;
+	font-size: 250%;
+  }
+  #btnDetail{
+	height: 85%;
+	width: 160px;
+	margin: 3px;
+	text-align: center;
+  }

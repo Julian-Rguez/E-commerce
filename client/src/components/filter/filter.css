@@ -1,0 +1,18 @@
+.contFilter{
+    position: absolute;
+    border-radius: 5PX;
+    top: 80px;
+    left: 77%;
+    width: 20%;
+    height: 72%;
+    border: 1px solid #acacaccc;
+}
+.filteTittle{
+color: green;
+font-weight: bold;
+font-size: 130%;
+margin-top: 10px;
+}
+#filtercontenido{
+    margin-left: 15px;
+}
