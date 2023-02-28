@@ -24,7 +24,7 @@ export default function Home() {
       foods={foodXPag} 
       total={foods.length}
       paginate={paginate} />  
-      <Filter/>  
+      <Filter foods={foods}/>  
       <About/>
     </>
   );
