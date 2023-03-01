@@ -1,27 +1,32 @@
 
 import React from "react";
-import "./pagination.css";
+import "./order.css";
 
-export const Pagination = ({ total, paginate }) => {
-  const pageNumbers = [];
-  let numOfPages = Math.ceil((total-6) / 6)
-  numOfPages +=1;
-  for (let i = 1; i <= numOfPages ; i++) {
-    pageNumbers.push(i);
-  }
+export default function Order () {
 
   return (
-    <nav className="pagination">
-      <div id="sep">-------------</div>
-      <div>Pages </div>
-        {pageNumbers.map((num) => (
-          <div key={num} className="item">
-            <button onClick={(e) => paginate(e, num)}>
-              {num} 
-            </button>
-          </div>
-        ))}
-    </nav>
+    <div>
+      <br /><div className="filteTittle">Order</div>
+      <div className="ordenado">
+        <div id="inorder" className="DeaZ2">
+          Order for_
+        </div>
+
+        <select className="DeaZ2" >
+          <option value={"Brand"}>Food</option>
+          <option value={"Category"}>Discount</option>
+        </select>
+
+        <div id="inorder" className="DeaZ2">
+          In order_
+        </div>
+
+        <select className="DeaZ2" >
+          <option value={"Ascending"}>Ascending</option>
+          <option value={"Descending"}>Descending</option>
+        </select>
+      </div>
+    </div>    
   );
 };
 
