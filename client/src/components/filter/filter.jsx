@@ -73,11 +73,11 @@ export default function Filter ({foods}) {
           ))):
           null}
         </div>
-        <div className="filteSubTitle"onClick={(e)=>openFilter(e,2)}>By amount of fat</div> 
+        <div className="filteSubTitle"onClick={(e)=>openFilter(e,2)}>By amount of Fat</div> 
         <div className="filterGrops">
         {act === 2?(
             itemsFilter[1].map((obj, ind) => (
-            <div key={ind}>
+            <div className="itemsFilterimg" key={ind}>
               <div>
                 {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
                 obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
@@ -90,11 +90,11 @@ export default function Filter ({foods}) {
           ))):
           null}
           </div>
-        <div className="filteSubTitle"onClick={(e)=>openFilter(e,3)}>By amount of sodium </div> 
+        <div className="filteSubTitle"onClick={(e)=>openFilter(e,3)}>By amount of Sodium </div> 
         <div className="filterGrops">
         {act === 3?(
             itemsFilter[2].map((obj, ind) => (
-            <div key={ind}>
+            <div className="itemsFilterimg" key={ind}>
               <div>
                 {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
                 obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
@@ -107,11 +107,11 @@ export default function Filter ({foods}) {
           ))):
           null}
           </div>
-        <div className="filteSubTitle"onClick={(e)=>openFilter(e,4)}>By amount of sugar </div> 
+        <div className="filteSubTitle"onClick={(e)=>openFilter(e,4)}>By amount of Sugar </div> 
         <div className="filterGrops">
         {act === 4?(
             itemsFilter[3].map((obj, ind) => (
-            <div key={ind}>
+            <div className="itemsFilterimg" key={ind}>
               <div>
                 {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
                 obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
