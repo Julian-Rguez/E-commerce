@@ -8,11 +8,45 @@
     border: 1px solid #acacaccc;
 }
 .filteTittle{
-color: green;
+color:  rgb(1, 104, 1);
 font-weight: bold;
 font-size: 130%;
 margin-top: 10px;
 }
 #filtercontenido{
     margin-left: 15px;
+    margin-right: 15px;
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
 }
+#filterimg{
+    width: 70px;
+    height: 60px;
+}
+.filterGrops{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+.filtername{
+    color: gray;
+}
+#filterimg2{
+    height: 30px;
+}
+.filteSubTitle{
+    background-color: rgba(0, 128, 0, 0.199);
+}
+.filteSubTitletxt{
+    background-color: rgba(0, 128, 0, 0.199);
+    border: none;
+    width: 100%;
+    color: green;
+    font-weight: bold;
+}
+.filteSubTitletxt:active, .filteSubTitletxt:focus {
+    outline: none;  
+}
+
