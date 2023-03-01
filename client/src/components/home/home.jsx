@@ -4,6 +4,8 @@ import Cards from '../cards/cards'
 import Filter from "../filter/filter";
 import foods from '../../fileTemp'
 import About from "../about/about";
+import Footer from "../Footer/Footer";
+import NavBar from "../Nav/NavBar";
 export default function Home() {
 
   const [pag, setPag] = useState(1);
@@ -19,6 +21,7 @@ export default function Home() {
   let foodXPag = foods.slice(ini, cant); 
   return (
     <>
+      <NavBar/>
       <div className="loginContainer">HOME</div>   
       <Cards 
       foods={foodXPag} 
@@ -26,6 +29,7 @@ export default function Home() {
       paginate={paginate} />  
       <Filter/>  
       <About/>
+      <Footer/>
     </>
   );
 }
