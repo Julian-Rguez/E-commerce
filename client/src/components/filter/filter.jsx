@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Order from "../order/order";
+import Search from "../Search/Search";
 import "./filter.css"
 
 export default function Filter ({foods}) {
@@ -51,8 +52,7 @@ export default function Filter ({foods}) {
   return (
     <div className="contFilter">
       <div id="filtercontenido">
-        <div className="filteTittle">Search</div>
-        <input type="text" className="filteSubTitletxt"/> <br />
+        <Search/>
         <Order/>
         <br /><div className="filteTittle">Filter</div>
         <div className="filteSubTitle" onClick={(e)=>openFilter(e,1)}>By type of food</div> 

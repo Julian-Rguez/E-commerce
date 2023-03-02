@@ -13,14 +13,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 foods: action.payload,
-                allCars: action.payload
-            }
-        case SEARCH:
-            let search = []
-            search = state.allFoods?.filter((e) => e.location.toLowerCase().includes(action.payload.toLowerCase()))
-            return {
-                ...state,
-                foods: [...search]
+                allFoods: action.payload
             }
         default:
             return state
