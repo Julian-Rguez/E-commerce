@@ -1,4 +1,4 @@
-import { GET_FILTER_FOODS, GET_ALL_FOODS } from '../Actions/Constantes'
+import { GET_FILTER_FOODS, GET_ALL_FOODS, SEARCH, GET_DETAILS } from '../Actions/Constantes'
 
 
 const initialState = {
@@ -20,6 +20,19 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 foods: action.payload,
                 allFoods: action.payload
+            }
+
+        case SEARCH:
+            let search = []
+            search = state.allFoods?.filter((e) => e.location.toLowerCase().includes(action.payload.toLowerCase()))
+            return {
+                ...state,
+                foods: [...search]
+            }
+        case GET_DETAILS:
+            return {
+                ...state,
+                details: action.payload
             }
         default:
             return state
