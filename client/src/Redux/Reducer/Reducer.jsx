@@ -1,9 +1,10 @@
-import { SEARCH, GET_ALL_FOODS } from '../Actions/Constantes'
+import { SEARCH, GET_ALL_FOODS, GET_DETAILS } from '../Actions/Constantes'
 
 
 const initialState = {
     foods: [],
     allFoods: [],
+    details: [],
 }
 
 
@@ -21,6 +22,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 foods: [...search]
+            }
+        case GET_DETAILS:
+            return {
+                ...state,
+                details: action.payload
             }
         default:
             return state
