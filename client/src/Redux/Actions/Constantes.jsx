@@ -1,1 +1,2 @@
 export const GET_ALL_FOODS = "GET_ALL_FOODS"
+export const GET_FILTER_FOODS ="GET_FILTER_FOODS"

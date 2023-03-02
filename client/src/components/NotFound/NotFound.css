@@ -1,0 +1,7 @@
+.NotFound{
+    color: green;
+    font-size: 200%;
+    font-weight: bold;
+    position: relative;
+    left: 50%;
+}

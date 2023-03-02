@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {GET_ALL_FOODS } from './Constantes'
+import {GET_ALL_FOODS, GET_FILTER_FOODS } from './Constantes'
 
 export const getAllFoods = () => async (dispatch) => {
     try {
@@ -13,3 +13,9 @@ export const getAllFoods = () => async (dispatch) => {
     }
 }
 
+export const getfilterFoods = (payload) => {
+    return {
+      type: GET_FILTER_FOODS,
+      payload
+    }
+  }
