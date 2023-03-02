@@ -10,3 +10,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.background img{
+  padding-top: 10px;
+  width: 100%;
+  height: auto;
+}
