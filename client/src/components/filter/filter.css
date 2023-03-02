@@ -24,12 +24,6 @@ margin-top: 10px;
     width: 70px;
     height: 60px;
 }
-.filterGrops{
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    margin-top: 8px;
-    margin-bottom: 20px;
-}
 .filtername{
     color: gray;
 }
@@ -48,5 +42,29 @@ margin-top: 10px;
 }
 .filteSubTitletxt:active, .filteSubTitletxt:focus {
     outline: none;  
+}
+.filterGrops{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.filterGrops2{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.imgtaFalse,.imgtTrue{
+    width: 90%;
+    border: 1px solid rgba(0, 128, 0, 0.384);
+    border-radius: 4px;
+}
+.imgtaFalse{
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+#gr{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    border: none;
 }
 

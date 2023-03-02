@@ -2,6 +2,7 @@ import React from "react";
 import "./cards.css"
 import Card from "../card/card";
 import { Pagination } from "../pagination/pagination";
+import NotFound from '../NotFound/NotFound'
 
 export default function Cards ({foods,total,paginate}) {
   return (
@@ -9,7 +10,7 @@ export default function Cards ({foods,total,paginate}) {
       <div className="showing">
         {foods.length > 0 ?
         foods.map((card,index) => <Card key={index} card = {card} />)
-        : <h3>Espere...</h3>
+        : <NotFound/>
         }
       </div>   
       <div>     
