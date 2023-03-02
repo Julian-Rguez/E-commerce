@@ -9,9 +9,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 .background img{
   padding-top: 10px;
   width: 100%;
-  height: auto;
+  height: 950px;
+  opacity: 0.95;
+  z-index: -1;
 }
