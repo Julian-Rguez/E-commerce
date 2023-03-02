@@ -6,9 +6,9 @@ module.exports =  [
     image:"https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/Afgan-Cuisine_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
     type: "Dessert",
-    Fat:"medium",
-    Sodium: "low",
-    Sugar:"high",
+    Fat:"Medium",
+    Sodium: "Low",
+    Sugar:"High",
     price: 2,
     description: "Afghan Cuisine offers a full array of succulent Afghani dishes for your dinning pleasure",
     discount:0,
@@ -20,9 +20,9 @@ module.exports =  [
     image:"https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/Asia-Express-Chinese-Food_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
     type: "Appetizer",
-    Fat:"high",
-    Sodium: "high",
-    Sugar:"medium",
+    Fat:"High",
+    Sodium: "High",
+    Sugar:"Medium",
     price: 4,
     description: "Asia Express Chinese Food offers delicious dining and takeout to Concord, CA",
     discount:1,
@@ -33,10 +33,10 @@ module.exports =  [
     name:"BAMBINO’S ITALIAN",
     image:"https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/Local-Buisinesses/bambinos_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
-    type: "Second food",
-    Fat:"low",
-    Sodium: "low",
-    Sugar:"medium",
+    type: "Drink",
+    Fat:"Low",
+    Sodium: "Low",
+    Sugar:"Medium",
     price: 7,
     description: "Bambino’s is an Italian favorite here in Concord. Take a trip to Italy when you visit and try authentic",
     discount:2,
@@ -47,10 +47,10 @@ module.exports =  [
     name:"BEST BURGERS",
     image:"https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/Best-Burgers_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
-    type: "first food",
-    Fat:"medium",
-    Sodium: "medium",
-    Sugar:"high",
+    type: "Drink",
+    Fat:"Medium",
+    Sodium: "Medium",
+    Sugar:"Medium",
     price: 9,
     description: "Delicious homemade burgers",
     discount:1,
@@ -61,10 +61,10 @@ module.exports =  [
     name:"BARNEY'S HICKORY PIT",
     image:"https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/f236b035a4763be04450f59be3640809_-united-states-california-contra-costa-county-concord-647879-barneys-hickory-pithtm_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
-    type: "first food",
-    Fat:"high",
-    Sodium: "low",
-    Sugar:"low",
+    type: "Main dish",
+    Fat:"High",
+    Sodium: "Low",
+    Sugar:"Low",
     price: 5,
     description: "Old-fashioned BBQ joint with cushioned booths & an open kitchen serving all the basics since 1957.",
     discount:0,
@@ -75,10 +75,10 @@ module.exports =  [
     name:"AUNG BURMA",
     image:"https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/aung-burma-2_78c77f7e90fd3bfb1d9860e623e7e9a0.JPG",
     available: true,
-    type: "Second food",
-    Fat:"high",
-    Sodium: "high",
-    Sugar:"low",
+    type: "Main dish",
+    Fat:"High",
+    Sodium: "High",
+    Sugar:"Low",
     price: 6,
     description: "Located in the heart of downtown Concord, Todos Santos Plaza, Aung Burma is the casual/fine",
     discount:0,
@@ -89,27 +89,13 @@ module.exports =  [
     name:"ANARKALI",
     image:"https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/l_210217_132336_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
-    type: "first food",
-    Fat:"medium",
-    Sodium: "medium",
-    Sugar:"low",
+    type: "Main dish",
+    Fat:"Medium",
+    Sodium: "Medium",
+    Sugar:"Low",
     price: 7,
     description: "At Anarkali we only use the freshest ingredients. No microwaves, freezers or gimicks",
     discount:1,
     review:[]
   },
 ]
-
-
-/*
-Appetizer
-first food
-Second food
-Dessert
-
-
-low
-medium
-high
-
-*/
