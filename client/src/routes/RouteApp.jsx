@@ -6,6 +6,7 @@ import About from "../Pages/About/About";
 import NotFound from "../Pages/Not found/NotFound";
 import Features from "../Pages/Features/Features";
 import Pricing from "../Pages/Pricing/Pricing";
+import Validating from "../components/validating/validating";
 
 function RouteApp() {
   return (
@@ -16,6 +17,7 @@ function RouteApp() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/features" element={<Features />} />
         <Route exact path="/pricing" element={<Pricing />} />
+        <Route exact path="/validating" element={<Validating/>} />
         <Route exact path="*" element={<NotFound/>} />
       </Routes>
     </>

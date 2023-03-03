@@ -2,7 +2,9 @@
 .loginContainer{
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100%; 
+    margin: 10px;
+    
 }
 #loginButtonGoToHomepage{
   position: absolute;
@@ -17,4 +19,26 @@
   height: 1000px;
   opacity: 0.95;
   z-index: -1;
+
+  top: 30%;
+  left: 40%;
+  transform: translate(-50%, -50%);  
+  width: 20%;
+  margin: 8%;
+  margin-top: 6%;
+  background-color: rgb(255, 255, 255, 0.3);
+  color: #070707cc;
+  border-color: black;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-left: 15px;
+  padding-top: 40px;
+}
+#int{
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+#int p{
+  text-align: justify;
 }
