@@ -1,0 +1,28 @@
+.a-content {
+  position:  relative;
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  text-align: center;
+  padding: 100px;
+  margin-bottom: 100px;
+  background-image: url("https://img.freepik.com/free-vector/background-organic-supermarket-with-watercolor_125540-704.jpg?size=626&ext=jpg&ga=GA1.1.1431584519.1677284003&semt=robertav1");
+  background-size: cover;
+}
+.a-content img {
+  border-radius: 100px;
+  right: 0;
+}
+.a-content-p{
+  background-color: rgb(224, 255, 223);
+  border-radius: 50px;
+  border: 1px solid white;
+  box-shadow: 1px 1px 1px 0 black;
+  color: rgb(37, 36, 36);
+  position: inherit;
+  padding: 30px;
+  z-index:1;
+  font-size: 1em;
+  font-weight: lighter;
+  background-image: none;
+}

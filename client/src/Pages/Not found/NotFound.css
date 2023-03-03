@@ -1,0 +1,21 @@
+.nf-content {
+  display: block;
+  margin-top: 80px;
+  text-align: center;
+}
+.nf-error {
+  color: rgb(48, 68, 61);
+  font-size: 50px;
+  margin-bottom: -70px;
+  z-index: 1;
+}
+.nf-advice img{
+    position: relative;
+    z-index: -1;
+}
+.nf-button{
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #14a44d;
+}
+
