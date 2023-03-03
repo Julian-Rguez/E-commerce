@@ -17,11 +17,11 @@ export default function Filter ({paginate}) {
   function openFilter(e, value){ 
     e.preventDefault();
     value === act? setact(0):setact(value)
-  }
-  
-  
+  }  
   //------------------------------------clic en un filtro
   function filter (e,value,index ){
+    document.getElementsByClassName("filteSubTitletxt")[0].value = "siiiiiiiiiiiiiiiiiiiii";
+    console.log(document.getElementsByClassName("filteSubTitletxt")[0].value);
     e.preventDefault();
     paginate(e,1)
     if (xclude[index].includes(value)){
@@ -45,6 +45,13 @@ export default function Filter ({paginate}) {
     filt3.map((obj) => { if (!xclude[3].includes(obj.Sugar)) filt4.push(obj);
     });
     dispatch(getfilterFoods(filt4))
+  }
+  //------------------------------------limpiar filtro
+  function offilter (){
+    xclude[0] = [];
+    xclude[1] = [];
+    xclude[2] = [];
+    xclude[3] = [];
   }
   //------------------------------------item para filter
   const itemsFilter = [[],[],[],[]];
@@ -86,7 +93,7 @@ export default function Filter ({paginate}) {
   return (
     <div className="contFilter">
       <br /><div id="filtercontenido">
-        <Search/>
+        <Search offilter= {offilter} />
         <br /><div className="filteTittle">Filter</div>
         <div className="filteSubTitle" onClick={(e)=>openFilter(e,1)}>By type of food</div> 
         <div className="filterGrops">
