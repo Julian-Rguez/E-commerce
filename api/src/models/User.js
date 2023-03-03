@@ -16,6 +16,18 @@ module.exports = (sequelize) => {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    phone: {
+        type: DataTypes.INTEGER,
+    },
+    location: {
+        type: DataTypes.STRING,
+    },
+    orders: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+    },
+    image: {
+        type: DataTypes.STRING, //de momento seria un url (opcional)
     }
    },{ timestamps: false });
 };
