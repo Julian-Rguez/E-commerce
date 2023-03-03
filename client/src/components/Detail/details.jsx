@@ -22,18 +22,18 @@ function Details() {
 
     return (
         <div className="background">
-            <div className="details">
+            <div className="details">detail
                 <Link className="ul-nav-home" to='/home' onClick={() => handleDispatch()}>Home</Link>
                 <h3>Details:</h3>
-                <p>Name: {details.name}</p>
-                <p>Price: {details.price}</p>
-                <p>Discount: {details.discount}</p>
-                <p>Review: {details.review}</p>
-                <p>Type: {details.type}</p>
-                <p>Fat: {details.fat}</p>
-                <p>Sodium:{details.sodium}</p>
-                <p>Sugar: {details.sugar}</p>
-                <p>Description: {details.description}</p>
+                <p>Name: {details[0].name}</p>
+                <p>Price: {details[0].price}</p>
+                <p>Discount: {details[0].discount}</p>
+                <p>Review: {details[0].review}</p>
+                <p>Type: {details[0].type}</p>
+                <p>Fat: {details[0].fat}</p>
+                <p>Sodium:{details[0].sodium}</p>
+                <p>Sugar: {details[0].sugar}</p>
+                <p>Description: {details[0].description}</p>
                 <p></p>
                 <p></p>
             </div>
