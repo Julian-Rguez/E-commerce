@@ -22,7 +22,7 @@ export const getfilterFoods = (payload) => {
 export function getDetail(id) {
     return async function (dispatch) {
         try {
-            const res = await axios.get(`http://localhost:3001/foods/${id}`)
+            const res = await axios.get(`http://localhost:3001/food/${id}`)
             return dispatch({
                 type: GET_DETAILS,
                 payload: res.data
