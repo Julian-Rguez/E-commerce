@@ -23,35 +23,42 @@ module.exports = (sequelize) => {
     },
     price: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+  
     },
     discount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+  
     },
     review: {
       type: DataTypes.ARRAY(DataTypes.INTEGER),
-      allowNull: false
-    },
+      },
     type: {
       type: DataTypes.STRING,
-      allowNull: false,
+  
     },
     fat: {
       type: DataTypes.STRING,
-      allowNull: false,
+  
     },
     sodium: {
       type: DataTypes.STRING,
-      allowNull: false,
+  
     },
     sugar: {
       type: DataTypes.STRING,
-      allowNull: false,
+  
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    qualification: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    amount: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
    },{ timestamps: false });
 };
