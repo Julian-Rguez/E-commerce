@@ -18,9 +18,7 @@ function RouteApp() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/features" element={<Features />} />
         <Route exact path="/pricing" element={<Pricing />} />
-        <Route exact path="/" element={<Login/>} />
-        <Route exact path="/home" element={<Home/>} />
-        <Route exact path="detail/:id" element={<Details/>} />
+        <Route exact path="/detail/:id" element={<Details/>} />
         <Route exact path="/validating" element={<Validating/>} />
         <Route exact path="*" element={<NotFound/>} />
       </Routes>

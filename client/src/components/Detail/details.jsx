@@ -22,7 +22,7 @@ function Details() {
 
     return (
         <div className="background">
-            <div className="details">
+            <div className="details">detail
                 <Link className="ul-nav-home" to='/home' onClick={() => handleDispatch()}>Home</Link>
                 <h3>Details:</h3>
                 <p>Name: {details[0].name}</p>
