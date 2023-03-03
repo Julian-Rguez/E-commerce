@@ -1,0 +1,24 @@
+.a-content {
+  position:  relative;
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  text-align: center;
+  padding: 100px;
+  margin-bottom: 100px;
+  background-image: url("https://img.freepik.com/vector-gratis/fondo-dibujado-comida-deliciosa_52683-16136.jpg?w=740&t=st=1677813945~exp=1677814545~hmac=0867edf84c5471f12b95c8262958b1678b13b5825ef85ea270f4c9dfa3a2fe37");
+}
+.a-content img {
+  border-radius: 100px;
+  right: 0;
+}
+.a-content-p{
+  background-color: rgb(177, 224, 176);
+  border-radius: 50px;
+  color: rgb(37, 36, 36);
+  position: inherit;
+  padding: 30px;
+  z-index:1;
+  font-size: 1.2em;
+  background-image: none;
+}
