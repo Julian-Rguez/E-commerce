@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Order from "../order/order";
 import Search from "../Search/Search";
 import "./filter.css"
 import { getfilterFoods } from "../../Redux/Actions/Actions";
@@ -93,9 +92,8 @@ export default function Filter ({paginate}) {
 
   return (
     <div className="contFilter">
-      <div id="filtercontenido">
+      <br /><div id="filtercontenido">
         <Search offilter= {offilter} />
-        <Order/>
         <br /><div className="filteTittle">Filter</div>
         <div className="filteSubTitle" onClick={(e)=>openFilter(e,1)}>By type of food</div> 
         <div className="filterGrops">
