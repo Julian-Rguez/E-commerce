@@ -39,10 +39,10 @@ export default function Filter ({paginate}) {
       filt3 = [],
       filt4 = [];
     
-    allfoods.map((obj) => { if (!xclude[0].includes(obj.type)) filt1.push(obj);});
-    filt1.map((obj) => { if (!xclude[1].includes(obj.Fat)) filt2.push(obj);});
-    filt2.map((obj) => { if (!xclude[2].includes(obj.Sodium)) filt3.push(obj);});
-    filt3.map((obj) => { if (!xclude[3].includes(obj.Sugar)) filt4.push(obj);
+    allfoods.forEach((obj) => { if (!xclude[0].includes(obj.type)) filt1.push(obj);});
+    filt1.forEach((obj) => { if (!xclude[1].includes(obj.Fat)) filt2.push(obj);});
+    filt2.forEach((obj) => { if (!xclude[2].includes(obj.Sodium)) filt3.push(obj);});
+    filt3.forEach((obj) => { if (!xclude[3].includes(obj.Sugar)) filt4.push(obj);
     });
     dispatch(getfilterFoods(filt4))
   }
@@ -56,7 +56,7 @@ export default function Filter ({paginate}) {
   //------------------------------------item para filter
   const itemsFilter = [[],[],[],[]];
   const cantFilter = [[],[],[],[]];
-  allfoods.map((element)=>{
+  allfoods.forEach((element)=>{
     if (!itemsFilter[0].includes(element.type)) {
       itemsFilter[0].push(element.type);
       cantFilter[0].push(1);
