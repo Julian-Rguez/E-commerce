@@ -8,6 +8,7 @@ import Features from "../Pages/Features/Features";
 import Pricing from "../Pages/Pricing/Pricing";
 import Details from "../components/Detail/details";
 import Validating from "../components/validating/validating";
+import Shopping from "../components/Shopping/shopping";
 
 function RouteApp() {
   return (
@@ -20,6 +21,7 @@ function RouteApp() {
         <Route exact path="/pricing" element={<Pricing />} />
         <Route exact path="/detail/:id" element={<Details/>} />
         <Route exact path="/validating" element={<Validating/>} />
+        <Route exact path="/shopping" element={<Shopping/>} />
         <Route exact path="*" element={<NotFound/>} />
       </Routes>
     </>
