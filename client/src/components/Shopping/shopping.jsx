@@ -51,7 +51,7 @@ export default function Shopping() {
           <div>10%</div>
           
           <div className="shopAmount">
-            <input className="shopNum" type="number" min="1" max="10"></input>
+            <input className="shopNum" type="number" min="1" max="10" value="1"></input>
           </div>
           <div>3.6 USD</div>
           <button>❌</button>
