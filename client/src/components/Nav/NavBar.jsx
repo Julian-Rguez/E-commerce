@@ -20,6 +20,7 @@ const NavBar = () => {
             <Nav.Link href="about">About</Nav.Link>
             <Nav.Link href="features">Features</Nav.Link>
             <Nav.Link href="pricing">Pricing</Nav.Link>
+            <Nav.Link href="shopping">Shopping</Nav.Link>
           </Nav>
           {isAuthenticated ? (
             <img className="navImg" src={user.picture} alt={"No"} />

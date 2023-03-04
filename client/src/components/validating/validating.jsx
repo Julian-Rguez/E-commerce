@@ -7,10 +7,11 @@ function Validating() {
   return (
         <div className="valida">
           {!isAuthenticated?
+          <>
+          <h1 id="validateTxt">Waiting for authentication information.</h1>
           <Link to="/">
-            <h1>Authentication error</h1>
-            <button type="button" class="btn btn-success">Back</button>              
-          </Link>:
+            <button id="validateBtn" type="button" class="btn btn-success">Back</button>              
+          </Link></>:
           window.location.href = "http://localhost:3000/home"}
         </div>
   );
