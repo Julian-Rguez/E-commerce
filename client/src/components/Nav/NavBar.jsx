@@ -9,12 +9,12 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const { isAuthenticated, user } = useAuth0();
-  console.log(isAuthenticated);
+
   return (
     <>
       <Navbar bg="success" fixed="top" variant="dark">
         <Container>
-          <Navbar.Brand href="home">Fast_Food</Navbar.Brand>
+          <Navbar.Brand href="/home">Fast_Food</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="about">About</Nav.Link>

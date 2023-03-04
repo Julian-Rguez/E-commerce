@@ -1,0 +1,92 @@
+/* .container1 {
+    margin: 8%;
+    margin-top: 6%;
+    background-color: rgb(255, 255, 255, 0.3);
+    color: #070707cc;
+    border-color: black;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-left: 15px;
+    padding-top: 40px;
+  }
+
+  .row1 {
+    height: 320px;
+    display: grid;
+    grid-template-columns: 55% 40% 10%;
+  }
+
+   */
+
+.container1 {
+	margin: 8%;
+	margin-top: 6%;
+	background-color: rgb(255, 255, 255, 0.3);
+	color: #070707cc;
+	border-color: black;
+	padding: 5px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	padding-left: 15px;
+	padding-top: 40px;
+}
+
+.food_name {
+	margin-bottom: 40px;
+	font-size: 30px;
+	color: #14a44d;
+	font-weight: 900;
+}
+
+.feature {
+	display: block;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+
+.title {
+	display: inline;
+	font-family: 'RocknRoll One', sans-serif;
+	font-size: 20px;
+	color: #131517;
+	font-weight: bold;
+}
+
+.description {
+	font-family: 'RocknRoll One', sans-serif;
+	display: inline;
+}
+
+.row1 {
+	height: 320px;
+	display: grid;
+	grid-template-columns: 55% 40% 10%;
+}
+.row1colum2 {
+	display: grid;
+	grid-template-rows: 30% 70%;
+}
+.row1colum21 {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+.row1colum211 {
+	display: grid;
+	grid-template-rows: 13% 13% 13% 13%;
+}
+.row1colum212 {
+	display: grid;
+	grid-template-rows: 13% 13% 13% 13%;
+}
+
+.row1 img {
+	width: 400px;
+	height: 300px;
+}
+
+.details-button {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin-top: 20px;
+}
