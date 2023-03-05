@@ -63,7 +63,6 @@ export default function Home() {
       return 0;
     });
   }
-  console.log(ordenado);
   // foods = [];
   // foods = ordenado;
   //-------------------------------------------------
@@ -101,7 +100,7 @@ export default function Home() {
             Order for_
           </div>
 
-          <select className="DeaZ2" onChange={(e) => fnDepe(e)}>
+          <select id="inorder2" className="DeaZ2" onChange={(e) => fnDepe(e)}>
             <option value={"Name"}>Name</option>
             <option value={"Type"}>Type</option>
           </select>
@@ -110,7 +109,7 @@ export default function Home() {
             In order_
           </div>
 
-          <select className="DeaZ2" onChange={(e) => fnOrder(e)}>
+          <select id="inorder2" className="DeaZ2" onChange={(e) => fnOrder(e)}>
             <option value={"Ascending"}>Ascending</option>
             <option value={"Descending"}>Descending</option>
           </select>

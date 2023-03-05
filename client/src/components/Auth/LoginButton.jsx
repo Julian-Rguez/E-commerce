@@ -5,6 +5,6 @@ export const LoginButton = () => {
   const { loginWithPopup } = useAuth0();
 
   return (
-    <button type="button" class="btn btn-success" onClick={() => loginWithPopup()}>Login Google 🡆</button>
+    <button  class="btn btn-success" onClick={() => loginWithPopup()}>Login Google 🡆</button>
   );
 };

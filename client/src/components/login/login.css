@@ -40,3 +40,7 @@ text-align: justify;
   opacity: 0.95;
   z-index: -1;
 }
+.txtLogin{
+  width: 40%;
+  height: 60%;
+}

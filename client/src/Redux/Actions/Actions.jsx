@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS } from './Constantes'
+import {reactLocalStorage} from 'reactjs-localstorage';
+import {ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS } from './Constantes'
 
 export const getAllFoods = () => async (dispatch) => {
     try {
@@ -37,5 +38,24 @@ export const setSearch = (payload) => {
     return {
         type: SEARCH,
         payload
+    }
+}
+
+export const shopping = (payload) => {
+    const data = (reactLocalStorage.get('Shopping')).split(",")
+    let dataupdate =[];
+    if (data.includes(payload)){
+        dataupdate = data.filter(id => id != payload);
+    }
+    else {
+        data.push (payload);
+        dataupdate = data;
+    }
+    reactLocalStorage.set("Shopping", dataupdate)
+    
+    
+    return {
+        type: ADDSHOPPING,
+        payload:data
     }
 }
