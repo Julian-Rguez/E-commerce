@@ -88,7 +88,6 @@ export default function Home() {
   return (
     <>
       <NavBar/>
-      <div className="loginContainer">HOME</div>   
       <Cards 
       foods={foodXPag} 
       total={foods.length}
