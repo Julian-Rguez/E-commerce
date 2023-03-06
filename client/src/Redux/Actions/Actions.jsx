@@ -17,7 +17,7 @@ export const getAllFoods = () => async (dispatch) => {
 export const getfilterFoods = (payload) => {
     return {
         type: GET_FILTER_FOODS,
-        payload
+        payload 
     }
 }
 export function getDetail(id) {

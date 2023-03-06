@@ -82,10 +82,10 @@ export default function Shopping() {
         </div><br /><br />
         <div className="cbutondetail">
           <Link to={`/home`} >
-            <button class="btn btn-success"> Go back </button>
+            <button className="btn btn-success"> Go back </button>
           </Link>
           <div id="Separate"></div>
-          <button class="btn btn-success">Start pay</button>
+          <button className="btn btn-success">Start pay</button>
         </div><br />
       </div>
       <Footer></Footer>

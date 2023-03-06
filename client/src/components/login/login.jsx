@@ -59,7 +59,7 @@ export default function Login() {
               </Link>:
               <button
               onClick={(e) => msn2(e)}
-              class="btn btn-success"
+              className="btn btn-success"
             >
               Login Google 🡆
             </button>
@@ -67,13 +67,13 @@ export default function Login() {
             <br /><br /><label>
               <input type="checkbox" onClick={(e)=>adminCheck(e)}/>
               &nbsp;&nbsp;&nbsp;Administrator &nbsp;&nbsp;
-              <input  type="password" maxlength="8" className="txtLogin" id="txtLogin"  placeholder = "Password" disabled = "false"/>
+              <input  type="password" maxlength="8" className="txtLogin" id="txtLogin"  placeholder = "Password" disabled = {false}/>
             </label>
             <br /><p><br />
               or you can enter as a guest and know our page and our products
             </p>
             <Link to="/home">
-              <button  class="btn btn-success">
+              <button  className="btn btn-success">
                 Go like invited 🡆
               </button>
             </Link>

@@ -40,7 +40,7 @@ const NavBar = () => {
             <LogoutButton />
           ) : (
             <Link to="/">
-              <button type="button" class="btn btn-light">
+              <button type="button" className="btn btn-light">
                 Login
               </button>
             </Link>
