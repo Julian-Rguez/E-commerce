@@ -4,6 +4,8 @@ import Footer from "../Footer/Footer";
 import { useAuth0 } from "@auth0/auth0-react";
 import { LoginButton } from "../Auth/LoginButton";
 import Swal from "sweetalert2";
+import { MDBCarousel, MDBCarouselItem } from "mdb-react-ui-kit";
+import logoLogin from "../../assets/images/logo.png";
 import {reactLocalStorage} from 'reactjs-localstorage';
 import "./login.css";
 export default function Login() {
@@ -34,12 +36,14 @@ export default function Login() {
   return (
     <>
       <div className="loginContainer">
+        <div className="loginTitle">
+          <img src={logoLogin} width="300px" alt="Login" />
+        </div>
         <div id="loginButtonGoToHomepage">
           <div id="int">
-            <h3>Food at home</h3>
+            {/* <h3>Food at home</h3> */}
             <p>
-              You can authenticate with Google and access all our options, we
-              will save your data for extra benefits and we will keep you
+              Authenticate with Google and access our website, we'll save your data for extra benefits and we'll keep you
               informed.
             </p>
             {
@@ -80,13 +84,28 @@ export default function Login() {
           </div>
         </div>
       </div>
-      
-          <div className="background">
-            <img
-              src="https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&auto=format&fit=crop&w=1500&q=960"
-              alt="main"
-            />
-          </div>
+      <div className="background">
+        <MDBCarousel>
+          <MDBCarouselItem
+            className="w-100 d-block"
+            itemId={1}
+            src="https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMGJhY2tncm91bmR8ZW58MHx8MHx8"
+            alt="1 tarta"
+          />
+          <MDBCarouselItem
+            className="w-100 d-block"
+            itemId={2}
+            src="https://images.unsplash.com/photo-1483137140003-ae073b395549?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZvb2QlMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHw%3D"
+            alt="2 oregano"
+          />
+          <MDBCarouselItem
+            className="w-100 d-block"
+            itemId={3}
+            src="https://images.unsplash.com/photo-1543353071-10c8ba85a904?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMGJhY2tncm91bmR8ZW58MHwwfDB8fA%3D%3D"
+            alt="3 limon"
+          />
+        </MDBCarousel>
+      </div>
       <Footer />
     </>
   );
