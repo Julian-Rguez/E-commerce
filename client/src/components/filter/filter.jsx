@@ -20,8 +20,7 @@ export default function Filter ({paginate}) {
   }  
   //------------------------------------clic en un filtro
   function filter (e,value,index ){
-    document.getElementsByClassName("filteSubTitletxt")[0].value = "siiiiiiiiiiiiiiiiiiiii";
-    console.log(document.getElementsByClassName("filteSubTitletxt")[0].value);
+    document.getElementsByClassName("filteSubTitletxt")[0].value = "";
     e.preventDefault();
     paginate(e,1)
     if (xclude[index].includes(value)){
@@ -39,10 +38,10 @@ export default function Filter ({paginate}) {
       filt3 = [],
       filt4 = [];
     
-    allfoods.map((obj) => { if (!xclude[0].includes(obj.type)) filt1.push(obj);});
-    filt1.map((obj) => { if (!xclude[1].includes(obj.Fat)) filt2.push(obj);});
-    filt2.map((obj) => { if (!xclude[2].includes(obj.Sodium)) filt3.push(obj);});
-    filt3.map((obj) => { if (!xclude[3].includes(obj.Sugar)) filt4.push(obj);
+    allfoods.forEach((obj) => { if (!xclude[0].includes(obj.type)) filt1.push(obj);});
+    filt1.forEach((obj) => { if (!xclude[1].includes(obj.Fat)) filt2.push(obj);});
+    filt2.forEach((obj) => { if (!xclude[2].includes(obj.Sodium)) filt3.push(obj);});
+    filt3.forEach((obj) => { if (!xclude[3].includes(obj.Sugar)) filt4.push(obj);
     });
     dispatch(getfilterFoods(filt4))
   }
@@ -56,7 +55,7 @@ export default function Filter ({paginate}) {
   //------------------------------------item para filter
   const itemsFilter = [[],[],[],[]];
   const cantFilter = [[],[],[],[]];
-  allfoods.map((element)=>{
+  allfoods.forEach((element)=>{
     if (!itemsFilter[0].includes(element.type)) {
       itemsFilter[0].push(element.type);
       cantFilter[0].push(1);
@@ -134,9 +133,9 @@ export default function Filter ({paginate}) {
               xclude[1].includes(obj)?
             <div  onClick={(e)=>filter (e,obj,1 )}id = "gr" className="imgtaFalse" key={ind}>
               <div>
-                {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
-                obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
-                <img id="filterimg2" src="https://i.ibb.co/j3xsz2k/medium.png" alt={"No"} />}
+                {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/H7wsdqx/3.png" alt={"No"} />:
+                obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/n3wyR8g/1.png" alt={"No"} />:
+                <img id="filterimg2" src="https://i.ibb.co/cgjkNJZ/2.png" alt={"No"} />}
               </div>
               <div className="filtername">
                 {obj} in Fat ({cantFilter[1][ind]})
@@ -144,9 +143,9 @@ export default function Filter ({paginate}) {
             </div>:
             <div onClick={(e)=>filter (e,obj,1 )}id = "gr" className="imgtTrue" key={ind}>
             <div>
-              {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
-              obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
-              <img id="filterimg2" src="https://i.ibb.co/j3xsz2k/medium.png" alt={"No"} />}
+              {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/H7wsdqx/3.png" alt={"No"} />:
+              obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/n3wyR8g/1.png" alt={"No"} />:
+              <img id="filterimg2" src="https://i.ibb.co/cgjkNJZ/2.png" alt={"No"} />}
             </div>
             <div className="filtername">
               {obj} in Fat ({cantFilter[1][ind]})
@@ -162,9 +161,9 @@ export default function Filter ({paginate}) {
             xclude[2].includes(obj)?
             <div onClick={(e)=>filter (e,obj,2 )}id = "gr" className="imgtaFalse" key={ind}>
               <div>
-                {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
-                obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
-                <img id="filterimg2" src="https://i.ibb.co/j3xsz2k/medium.png" alt={"No"} />}
+                {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/H7wsdqx/3.png" alt={"No"} />:
+                obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/n3wyR8g/1.png" alt={"No"} />:
+                <img id="filterimg2" src="https://i.ibb.co/cgjkNJZ/2.png" alt={"No"} />}
               </div>
               <div className="filtername">
                 {obj} in Sodium ({cantFilter[2][ind]})
@@ -172,9 +171,9 @@ export default function Filter ({paginate}) {
             </div>:
             <div onClick={(e)=>filter (e,obj,2 )}id = "gr" className="imgtTrue" key={ind}>
             <div>
-              {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
-              obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
-              <img id="filterimg2" src="https://i.ibb.co/j3xsz2k/medium.png" alt={"No"} />}
+              {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/H7wsdqx/3.png" alt={"No"} />:
+              obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/n3wyR8g/1.png" alt={"No"} />:
+              <img id="filterimg2" src="https://i.ibb.co/cgjkNJZ/2.png" alt={"No"} />}
             </div>
             <div className="filtername">
               {obj} in Sodium ({cantFilter[2][ind]})
@@ -190,9 +189,9 @@ export default function Filter ({paginate}) {
             xclude[3].includes(obj)?
             <div onClick={(e)=>filter (e,obj,3 )} id = "gr" className="imgtaFalse" key={ind}>
               <div>
-                {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
-                obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
-                <img id="filterimg2" src="https://i.ibb.co/j3xsz2k/medium.png" alt={"No"} />}
+                {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/H7wsdqx/3.png" alt={"No"} />:
+                obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/n3wyR8g/1.png" alt={"No"} />:
+                <img id="filterimg2" src="https://i.ibb.co/cgjkNJZ/2.png" alt={"No"} />}
               </div>
               <div className="filtername">
                 {obj} in Sugar ({cantFilter[3][ind]})
@@ -200,9 +199,9 @@ export default function Filter ({paginate}) {
             </div>:
             <div onClick={(e)=>filter (e,obj,3 )} id = "gr" className="imgtTrue" key={ind}>
             <div>
-              {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/h7P81RB/high.png" alt={"No"} />:
-              obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/p46MZK3/low.png" alt={"No"} />:
-              <img id="filterimg2" src="https://i.ibb.co/j3xsz2k/medium.png" alt={"No"} />}
+              {obj ==="High"?<img id="filterimg2" src="https://i.ibb.co/H7wsdqx/3.png" alt={"No"} />:
+              obj ==="Low"?<img id="filterimg2" src="https://i.ibb.co/n3wyR8g/1.png" alt={"No"} />:
+              <img id="filterimg2" src="https://i.ibb.co/cgjkNJZ/2.png" alt={"No"} />}
             </div>
             <div className="filtername">
               {obj} in Sugar ({cantFilter[3][ind]})

@@ -1,8 +1,17 @@
 import React from 'react';
 import './card.css';
 import {Link} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { shopping } from '../../Redux/Actions/Actions';
 
-function Card({card}) {
+function Card({card,arrayInShopping,update}) {
+	const dispatch = useDispatch(); 
+
+	function addCar(e){
+		e.preventDefault();
+		dispatch (shopping(e.target.value))
+		update()
+	}
 	return (
 		<div className="cardd">
 		  <div></div>
@@ -14,7 +23,7 @@ function Card({card}) {
 		  </div>	
 		  <div className="texts">
 			<div className="text1">
-			  {card.name}
+			 {card.name} ({card.amount})
 			</div>
 			<div className="conText">
 			  <div className="text2">type: {card.type} </div>
@@ -24,8 +33,10 @@ function Card({card}) {
 			</div>
 			<div className="text3">US$ {card.price}</div>
 		  </div>	
-		  <div className="cardPart3">			
-		  	<div><button id='btnCarrito'> 🛒 </button></div>
+		  <div className="cardPart3">	
+		  	{arrayInShopping.includes(card.id)?
+		  	<button id= {card.id} className='btnCarritotrue' value={card.id} onClick = {(e)=>addCar(e)}></button>:
+		  	<button id= {card.id} className='btnCarritofalse' value={card.id} onClick = {(e)=>addCar(e)}></button>}
 			<div className="Desc">discount</div>
 			<div className="DescVal">{card.discount}%</div>
 		  </div>

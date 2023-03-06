@@ -23,10 +23,16 @@
     text-align: right;
     cursor: pointer;
   }
+  #inorder, #inorder2{
+    font-size: 85%;
+  }
   
 .orderTittle{
   color:  rgb(1, 104, 1);
   font-weight: bold;
   font-size: 130%;
   margin-top: 10px;
+  }
+  #ordenateTxt{    
+    font-size: 10%;
   }

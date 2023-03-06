@@ -4,3 +4,11 @@
     left: 50%;
     transform: translate(-50%, -50%);  
 }
+#validateTxt{
+    color: green;
+    width: 250px;
+    text-align: justify;
+}
+#validateBtn{    
+    width: 250px;
+}
