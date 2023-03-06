@@ -1,0 +1,103 @@
+.contact {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    background-image: url(../../assets/images/Contact-fondo.jpg);
+    display: flex;
+}
+
+h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -3px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    color: #4CAF50;
+    outline: none;
+    text-align: center;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+        1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
+h1:hover {
+    font-variation-settings: "wght" 582;
+    letter-spacing: 1px;
+}
+
+.contact::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.contact .container .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.contact form {
+    width: 50%;
+    margin: 1rem;
+}
+
+.contact .form-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact form label {
+    margin: 2rem 0 0.7rem 0;
+    display: none;
+}
+
+.contact form input,
+textarea {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: #f8f8f8;
+    margin: 1rem 0;
+    font-family: "Roboto", sans-serif;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .15)
+}
+
+
+.contact form input:focus,
+textarea:focus {
+    outline: green;
+    box-shadow: 0 0 12px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button:hover {
+    background-color: #3e8e41
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

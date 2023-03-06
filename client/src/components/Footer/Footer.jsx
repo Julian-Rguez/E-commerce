@@ -22,30 +22,30 @@ const Footer = () => {
             </div>
             <div>
               <a
-                href="https://www.students.soyhenry.com/"
+                href="https://www.facebook.com/profile.php?id=100090890799653" target="_blank"
                 className="me-4 text-reset"
               >
                 <MDBIcon fab icon="facebook-f" />
               </a>
               <a
-                href="https://www.students.soyhenry.com/"
-                className="me-4 text-reset"
-              >
-                <MDBIcon fab icon="twitter" />
-              </a>
-              <a
-                href="https://www.students.soyhenry.com/"
-                className="me-4 text-reset"
-              >
-                <MDBIcon fab icon="google" />
-              </a>
-              <a
-                href="https://www.students.soyhenry.com/"
+                href="https://www.instagram.com/deligou/ " target="_blank"
                 className="me-4 text-reset"
               >
                 <MDBIcon fab icon="instagram" />
               </a>
               <a
+                href="http://localhost:3000/contact"
+                className="me-4 text-reset"
+              >
+                <MDBIcon fab icon="google" />
+              </a>
+              {/* <a
+                  href="https://www.students.soyhenry.com/"
+                  className="me-4 text-reset"
+                >
+                  <MDBIcon fab icon="twitter" />
+                </a> */}
+              {/* <a
                 href="https://www.students.soyhenry.com/"
                 className="me-4 text-reset"
               >
@@ -56,7 +56,7 @@ const Footer = () => {
                 className="me-4 text-reset"
               >
                 <MDBIcon fab icon="github" />
-              </a>
+              </a> */}
             </div>
           </section>
 
@@ -130,7 +130,7 @@ const Footer = () => {
                   </p>
                   <p>
                     <MDBIcon icon="envelope" className="me-3" />
-                    info@example.com
+                    deligou70@gmail.com
                   </p>
                   <p>
                     <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
@@ -153,7 +153,7 @@ const Footer = () => {
             </a>
           </div>
         </MDBFooter>
-        </div>
+      </div>
     </>
   );
 };
