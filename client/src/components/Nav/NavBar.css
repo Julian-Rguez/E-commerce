@@ -4,14 +4,16 @@
   height: 10px;
   color: white;
 }
+
 .navImg {
   width: 40px;
   height: 40px;
   border-radius: 20px;
   margin-right: 10px;
 }
+
 .navLogo {
-  position: fixed;
+  position: relative;
   left: 7%;
   width: 60px;
 }
