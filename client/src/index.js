@@ -16,8 +16,7 @@ root.render(
       <BrowserRouter>
       <Auth0Provider
       domain='dev-food-login.us.auth0.com'
-      clientId='nVFtFDHQnX1JAL7WosHxPd8jJlo6n3H7'
-      redirectUri= {window.location.origin}>
+      clientId='nVFtFDHQnX1JAL7WosHxPd8jJlo6n3H7'>
         <App />
         </Auth0Provider>
       </BrowserRouter>

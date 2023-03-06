@@ -27,10 +27,18 @@
 	font-weight: bold;
 	color: green;
   }
-  #btnCarrito{
-	background-color: transparent;
+  .btnCarritofalse, .btnCarritotrue{
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
 	border: none;
-	font-size: 150%;
+  }
+  .btnCarritofalse{
+	background-image: url("https://i.ibb.co/vsbHpZR/4.png");
+  }
+  .btnCarritotrue{
+	background-image: url("https://i.ibb.co/vsbHpZR/4.png");
+	background-color: #14a44d;
   }
   .texts {
 	display: grid;
