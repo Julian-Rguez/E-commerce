@@ -9,6 +9,7 @@ import Pricing from "../Pages/Pricing/Pricing";
 import Details from "../components/Detail/details";
 import Validating from "../components/validating/validating";
 import Shopping from "../components/Shopping/shopping";
+import Contact from "../components/Contact/contact";
 
 function RouteApp() {
   return (
@@ -19,10 +20,11 @@ function RouteApp() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/features" element={<Features />} />
         <Route exact path="/pricing" element={<Pricing />} />
-        <Route exact path="/detail/:id" element={<Details/>} />
-        <Route exact path="/validating" element={<Validating/>} />
-        <Route exact path="/shopping" element={<Shopping/>} />
-        <Route exact path="*" element={<NotFound/>} />
+        <Route exact path="/detail/:id" element={<Details />} />
+        <Route exact path="/validating" element={<Validating />} />
+        <Route exact path="/shopping" element={<Shopping />} />
+        <Route exact path="*" element={<NotFound />} />
+        <Route exact path='/contact' element={<Contact />} />
       </Routes>
     </>
   );

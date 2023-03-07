@@ -2,6 +2,7 @@ module.exports = [
   {
     id: "1",
     name: "BANANA SPLIT",
+    amount:2,
     image:
       "https://www.paulinacocina.net/wp-content/uploads/2021/12/banana-split-helado.jpg",
     available: true,
@@ -18,6 +19,7 @@ module.exports = [
   {
     id: "2",
     name: "ASIA EXPRESS CHINESE",
+    amount:5,
     image:
       "https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/Asia-Express-Chinese-Food_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
@@ -34,6 +36,7 @@ module.exports = [
   {
     id: "3",
     name: "BAMBINO’S ITALIAN",
+    amount:1,
     image:
       "https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/Local-Buisinesses/bambinos_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
     available: true,
@@ -50,6 +53,7 @@ module.exports = [
   {
     id: "4",
     name: "MOZZARELLA STICKS",
+    amount:3,
     image:
       "https://lacteostonutti.com.ar/wp-content/uploads/2021/01/6-7-1080x675.jpg",
     available: true,
@@ -66,6 +70,7 @@ module.exports = [
   {
     id: "5",
     name: "BEEF STEW",
+    amount:5,
     image:
       "https://www.onceuponachef.com/images/2011/02/beef-stew-with-carrots-potatoes.jpg",
     available: true,
@@ -82,6 +87,7 @@ module.exports = [
   {
     id: "6",
     name: "OLIVE CHEESE SKEWERS",
+    amount:4,
     image:
       "https://assets.kraftfoods.com/recipe_images/opendeploy/Mediterranean-Starter-Sticks-53988_640x428.jpg",
     available: true,
@@ -97,6 +103,7 @@ module.exports = [
   {
     id: "7",
     name: "SEPTIMA MALBEC WINE",
+    amount:2,
     image: "https://laverdadonline.com/wp-content/uploads/2022/05/copa-2.jpg",
     available: true,
     type: "Drink",
@@ -108,10 +115,10 @@ module.exports = [
     discount: 1,
     review: [],
   },
-
   {
     id: "8",
     name: "IMPERIAL BEER",
+    amount:1,
     image:
       "https://www.history.com/.image/t_share/MTk1NTU5MDQ0MTYzODM5MDM3/gettyimages-1386915196.jpg",
     available: true,
@@ -128,6 +135,7 @@ module.exports = [
   {
     id: "9",
     name: "BEST BURGER",
+    amount:3,
     image: "https://www.likeburger.com.ar/images/fotos/8.jpg",
     available: true,
     type: "Main dish",
@@ -143,6 +151,7 @@ module.exports = [
   {
     id: "10",
     name: "AREPAS",
+    amount:5,
     image:
       "https://nomadparadise.com/wp-content/uploads/2020/07/colombian-food-01-768x480.jpg.webp",
     available: true,
@@ -159,6 +168,7 @@ module.exports = [
   {
     id: "11",
     name: "SODA WITH ICE",
+    amount:3,
     image:
       "https://thumbs.dreamstime.com/b/glasses-cola-orange-soda-drink-lemonade-sparkling-water-white-background-ice-cubes-154052973.jpg",
     available: true,
@@ -175,6 +185,7 @@ module.exports = [
   {
     id: "12",
     name: "CAESAR SALAD",
+    amount:5,
     image:
       "https://img.taste.com.au/8-PjS8DG/w720-h480-cfill-q80/taste/2016/11/traditional-caesar-salad-974-1.jpeg",
     available: true,
@@ -191,6 +202,7 @@ module.exports = [
   {
     id: "13",
     name: "ISRAELI FALAFEL",
+    amount:1,
     image:
       "https://recetasarabes.com/wp-content/img-recetas-arabes/2012/03/falafel-3.jpg",
     available: true,
@@ -207,6 +219,7 @@ module.exports = [
   {
     id: "14",
     name: "WALDORF SALAD",
+    amount:5,
     image:
       "https://images-gmi-pmc.edge-generalmills.com/3eda262b-a41b-4fca-9806-b5c33e982910.jpg",
     available: true,
@@ -223,6 +236,7 @@ module.exports = [
   {
     id: "15",
     name: "CUSTARD PUDDING",
+    amount:4,
     image:
       "https://cookingwithdog.com/wp-content/uploads/2017/01/custard-pudding-00-1024x576.jpg",
     available: true,
@@ -245,6 +259,7 @@ module.exports = [
     Fat: "High",
     Sodium: "Medium",
     Sugar: "Low",
+    amount:3,
     price: 8,
     description:
       "It's a true classic and a household favorite. And what's more, everyone loves it!",
@@ -254,6 +269,7 @@ module.exports = [
   {
     id: "17",
     name: "CHOCOLATE VOLCANO",
+    amount:1,
     image:
       "https://www.hersheyland.com/content/dam/Hersheyland_Mexico/es_mx/recipes/recipe-images/Volc%C3%A1n%20de%20Chocolate%20Hershey's.jpg",
     available: true,
@@ -270,6 +286,7 @@ module.exports = [
   {
     id: "18",
     name: "FRUIT JUICE",
+    amount:2,
     image:
       "https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20180426060615/ri/673/picture/2018/4/shutterstock_1By_stockcreations.jpg",
     available: true,

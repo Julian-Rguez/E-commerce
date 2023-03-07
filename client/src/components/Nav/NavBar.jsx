@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from "react-bootstrap/Navbar";
 import { LogoutButton } from "../Auth/LogoutButton";
 import "./NavBar.css";
+import Logo from "../../assets/images/navLogo.png"
 
 const NavBar = () => {
   const { isAuthenticated, user } = useAuth0();
@@ -14,7 +15,7 @@ const NavBar = () => {
     <>
       <Navbar bg="success" fixed="top" variant="dark">
         <Container>
-          <Navbar.Brand href="/home">Fast_Food</Navbar.Brand>
+          <Navbar.Brand href="/home"><img src={Logo} alt="" className="navLogo"/></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="about">About</Nav.Link>
@@ -40,7 +41,7 @@ const NavBar = () => {
             <LogoutButton />
           ) : (
             <Link to="/">
-              <button type="button" class="btn btn-light">
+              <button type="button" className="btn btn-light">
                 Login
               </button>
             </Link>
