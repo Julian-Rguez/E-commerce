@@ -35,7 +35,7 @@ module.exports = postFood = async (req, res) => {
         qualification,
         amount,
       });
-      return res.status(200).json({ message: "successfully created" });
+      return res.status(200).json({ message: "Successfully created" });
     }
   } catch (error) {
     res.status(400).json({ msg: error.message });

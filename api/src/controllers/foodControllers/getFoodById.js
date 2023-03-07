@@ -11,7 +11,7 @@ module.exports = getFoodById = async (req, res) => {
     } else if (useArray.length > 0) {
       res.status(200).send(useArray);
     } else {
-      res.status(200).send({ message: "It was not found" });
+      res.status(200).send({ message: "Food not found" });
     }
   } catch (error) {
     res.status(400).send(error.message);

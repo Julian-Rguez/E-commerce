@@ -27,7 +27,7 @@ module.exports = getFoods = async (req, res) => {
             amount: i.amount,
           })
       );
-      const filds = mape.filter((e) => e.name !== "no se encontro");
+      const filds = mape.filter((e) => e.name !== "Not found");
       const users = await Food.findAll();
       let mape2 = users.map(
         (i) =>
@@ -48,7 +48,7 @@ module.exports = getFoods = async (req, res) => {
             amount: i.amount,
           })
       );
-      const fild = mape2.filter((e) => e.name !== "no se encontro");
+      const fild = mape2.filter((e) => e.name !== "Not found");
       if (fild.length > 0) {
         for (var i = 0; i < fild.length; i++) {
           resp.push(fild[i]);
@@ -60,7 +60,7 @@ module.exports = getFoods = async (req, res) => {
         }
       }
       if (resp.length < 1) {
-        resp[0] = { message: "no breed was found by that name" };
+        resp[0] = { message: "Not found by that name" };
       }
       return res.status(200).send(resp);
     }
