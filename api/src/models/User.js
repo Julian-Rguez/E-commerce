@@ -29,6 +29,7 @@ module.exports = (sequelize) => {
       mail: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       roll: {
         type: DataTypes.STRING,
