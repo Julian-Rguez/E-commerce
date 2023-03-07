@@ -29,8 +29,8 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
   
     },
-    review: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+    reviews: {
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       },
     type: {
       type: DataTypes.STRING,
