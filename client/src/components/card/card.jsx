@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './card.css';
 import {Link} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { shopping } from '../../Redux/Actions/Actions';
+import Rating from '@mui/material/Rating';
 
 function Card({card,arrayInShopping,update}) {
 	const dispatch = useDispatch(); 
@@ -32,6 +33,8 @@ function Card({card,arrayInShopping,update}) {
 			  <div className="text2">Sugar: {card.Sugar} </div>
 			</div>
 			<div className="text3">US$ {card.price}</div>
+			{console.log(card)}
+		  <Rating name="read-only" value={card.amount} readOnly />
 		  </div>	
 		  <div className="cardPart3">	
 		  	{arrayInShopping.includes(card.id)?
