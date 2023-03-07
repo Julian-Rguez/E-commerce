@@ -4,7 +4,7 @@ module.exports = deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
     if (id) {
-      const use = await User.destroy({ where: { id: id } });
+      const use = await User.destroy({ where: { mail: id } });
       if (use === 0) {
         return res.status(200).send({ message: "It was not found" });
       }
