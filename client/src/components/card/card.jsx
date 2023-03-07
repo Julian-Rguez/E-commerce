@@ -45,6 +45,6 @@ function Card({card,arrayInShopping,update}) {
 		  <div></div>
 		</div>
 	  );
-}
+} 
 
 export default Card;
