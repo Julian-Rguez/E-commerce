@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -10,13 +10,23 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import "./login.css";
 export default function Login() {
   const { isAuthenticated } = useAuth0();
-  let PWadmin = true;
+  let [PWadmin,setPWadmin] = useState (true);
+  let [pw,setpw] = useState ("");
   reactLocalStorage.set("Shopping", "0")
   function adminCheck(e){
-    (e.target.checked)?
-    document.getElementById ("txtLogin").disabled =false:
-    document.getElementById ("txtLogin").disabled =true;
-  }
+    if (e.target.checked) {
+      document.getElementById ("txtLogin").disabled =false;
+      setPWadmin (false)
+    }
+    else {
+      document.getElementById ("txtLogin").disabled =true;
+      setPWadmin (true)};
+    }
+    function adminChange(e){
+      e.preventDefault();
+      setpw (e.target.value);
+      if (e.target.value ==="12345678") setPWadmin (true)
+    }
   function msn(e) {
     e.preventDefault();
     Swal.fire({
@@ -71,7 +81,7 @@ export default function Login() {
             <br /><br /><label>
               <input type="checkbox" onClick={(e)=>adminCheck(e)}/>
               &nbsp;&nbsp;&nbsp;Administrator &nbsp;&nbsp;
-              <input  type="password" maxLength="8" className="txtLogin" id="txtLogin"  placeholder = "Password" disabled = {false}/>
+              <input  type="password" maxlength="8" className="txtLogin" id="txtLogin"  placeholder = "Password" disabled = {true} value ={pw} onChange = {(e)=>adminChange(e)} />
             </label>
             <br /><p><br />
               or you can enter as a guest and know our page and our products

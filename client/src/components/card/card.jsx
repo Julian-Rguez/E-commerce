@@ -33,7 +33,6 @@ function Card({card,arrayInShopping,update}) {
 			  <div className="text2">Sugar: {card.Sugar} </div>
 			</div>
 			<div className="text3">US$ {card.price}</div>
-			{console.log(card)}
 		  <Rating name="read-only" value={card.amount} readOnly />
 		  </div>	
 		  <div className="cardPart3">	
