@@ -10,6 +10,12 @@ import Details from "../components/Detail/details";
 import Validating from "../components/validating/validating";
 import Shopping from "../components/Shopping/shopping";
 import Contact from "../components/Contact/contact";
+// import Nav from "../admin/Components/Nav/Nav";
+import Users from "../admin/pages/Users/Users";
+import Foods from "../admin/pages/Foods/Foods";
+import Sales from "../admin/pages/Sales/Sales";
+import Dashboard from "../admin/pages/Dashboard/Dashboard";
+import { FoodForm } from "../admin/Components/Forms/FoodForm";
 
 function RouteApp() {
   return (
@@ -23,8 +29,17 @@ function RouteApp() {
         <Route exact path="/detail/:id" element={<Details />} />
         <Route exact path="/validating" element={<Validating />} />
         <Route exact path="/shopping" element={<Shopping />} />
+        <Route exact path="/contact" element={<Contact />} />
+
+        <Route exact path="/dashboard" element={<Dashboard />}>
+          {/* <Route index element={<Nav />} /> */}
+          <Route path="users" element={<Users />} />
+          <Route path="foods" element={<Foods />} />
+          <Route path="sales" element={<Sales />} />
+          <Route path="create-food" element={<FoodForm />} />
+        </Route>
+
         <Route exact path="*" element={<NotFound />} />
-        <Route exact path='/contact' element={<Contact />} />
       </Routes>
     </>
   );
