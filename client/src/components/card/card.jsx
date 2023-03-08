@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './card.css';
 import {Link} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { shopping } from '../../Redux/Actions/Actions';
 import Rating from '@mui/material/Rating';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import { green } from '@mui/material/colors';
 
 function Card({card,arrayInShopping,update}) {
 	const dispatch = useDispatch(); 
+	const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 	function addCar(e){
 		e.preventDefault();
@@ -25,6 +30,12 @@ function Card({card,arrayInShopping,update}) {
 		  <div className="texts">
 			<div className="text1">
 			 {card.name} ({card.amount})
+			<Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{
+          color: green[800],
+          '&.Mui-checked': {
+            color: green[600],
+          },
+        }}/>
 			</div>
 			<div className="conText">
 			  <div className="text2">type: {card.type} </div>
