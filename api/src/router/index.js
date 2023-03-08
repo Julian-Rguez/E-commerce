@@ -9,6 +9,7 @@ const getUserById = require("../controllers/userControllers/getUserById.js");
 const postUser = require("../controllers/userControllers/postUser.js");
 const deleteUser = require("../controllers/userControllers/deleteUser.js");
 const postBill = require("../controllers/billControllers/postBill");
+const putBill = require("../controllers/billControllers/putBill");
 
 router.get("/foods", getFoods);
 router.get("/food/:id", getFoodById);
@@ -21,4 +22,5 @@ router.post("/user", postUser);
 router.delete("/user/:id", deleteUser);
 
 router.post("/bill", postBill)
+router.put("/billPut", putBill)
 module.exports = router;

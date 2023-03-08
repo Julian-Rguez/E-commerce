@@ -2,10 +2,11 @@ const { User } = require("../../db");
 
 module.exports = postUser = async (req, res) => {
   try {
-    const { mail, roll, activename, telephone, direction, favorites, active } =
+    const { mail, roll, activename, telephone, direction, favorites, active, name } =
       req.body;
     if (mail && roll) {
       await User.create({
+        name,
         mail,
         roll,
         activename,
