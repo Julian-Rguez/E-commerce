@@ -7,7 +7,7 @@ module.exports = getUserById = async (req, res) => {
     if (useSql.length > 0) {
       res.status(200).send(useSql);
     } else {
-      res.status(200).send({ message: "It was not found" });
+      res.status(200).send({ message: "User not found" });
     }
   } catch (error) {
     res.status(400).send(error.message);

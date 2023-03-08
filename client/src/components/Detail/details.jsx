@@ -18,7 +18,7 @@ function Details() {
 
 	useEffect(() => {
 		dispatch(getDetail(id));
-	});
+	}, [dispatch]);
 
 	return (
 		<>
