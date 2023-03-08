@@ -1,21 +1,46 @@
-const { DataTypes } = require('sequelize');
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+const { DataTypes, UUIDV4 } = require("sequelize");
+
 module.exports = (sequelize) => {
-  // defino el modelo
-  sequelize.define('user', {
-    id:{
-        type: DataTypes.STRING,
+  sequelize.define(
+    "user",
+    {
+      id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        allowNull: false
+      },
+      name: {
+        type: DataTypes.STRING,
+        minLength: 3,
+        maxLength: 50,
+      },
+      telephone: {
+        type: DataTypes.STRING,
+        minLength: 9,
+      },
+      direction: {
+        type: DataTypes.STRING,
+        minLength: 9,
+      },
+      favorites: {
+        type: DataTypes.STRING,
+      },
+      mail: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      roll: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      active: {
+        type: DataTypes.STRING,
+        enum: ["valid", "invalid"],
+        default: "valid",
+      },
     },
-    mail: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    }, 
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    }
-   },{ timestamps: false });
+    { timestamps: false }
+  );
 };
