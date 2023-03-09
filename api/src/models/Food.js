@@ -56,6 +56,9 @@ module.exports = (sequelize) => {
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    favorite: {
+      type: DataTypes.BOOLEAN,
     }
    },{ timestamps: false });
 };
