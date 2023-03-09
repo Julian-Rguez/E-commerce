@@ -45,7 +45,7 @@ const handleBoxMouseLeave = () => {
             
                {favorites.length? favorites.map(fav => { 
                return <div className='favs-container'>
-                <img src={fav.image} alt="" id='favs-image'/> 
+                <img src={fav.image} alt="" id='favs-image'/>
                 <div>
                  <p className='favs-name' >{fav.name}</p> 
                  <p className='favs-name'>${fav.price}</p>  
