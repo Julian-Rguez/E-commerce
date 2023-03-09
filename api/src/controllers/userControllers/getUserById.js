@@ -1,9 +1,9 @@
-const { User } = require("../../db");
+const { User, Bill } = require("../../db");
 
 module.exports = getUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    const useSql = await User.findAll({ where: { id: id } });
+    const useSql = await User.findAll({ where: { id: id }, include: Bill, });
     if (useSql.length > 0) {
       res.status(200).send(useSql);
     } else {
