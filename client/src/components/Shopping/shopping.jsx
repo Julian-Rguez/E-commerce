@@ -8,8 +8,30 @@ import Footer from "../Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Shopping() {
+  function fnValNum(e){
+    e.preventDefault();
+    valNum[e.target.id] = e.target.value;
+    settotal (e.target.value)
+  }
+  function minCant(e){
+    e.preventDefault();
+    let current = (parseInt(valNum[e.target.id]));
+    if (current>1) valNum[e.target.id] = current -1;
+    settotal (valNum[e.target.id]) 
+  }
+  function masCant(e){
+    e.preventDefault();
+    const inf = e.target.id.split(",")
+    let current = (parseInt(valNum[inf[0]]));
+    if (current<(parseInt(inf[1]))) valNum[inf[0]] = current+1;
+    settotal (valNum[inf[0]]) 
+  }
+
+
   const dispatch = useDispatch();
+  const [total,settotal] = useState(10)
   const display = []
+  const [valNum] =useState ([])
   useEffect(() => {
     dispatch(getAllFoods())
    },[dispatch]);
@@ -33,14 +55,14 @@ export default function Shopping() {
 
   foods.map ((food)=>{
     if (info.includes (food.id)){
+      if (valNum.length === display.length) valNum.push("1")
       display.push(food)
     }
   })
-  console.log(foods[3]);
+  
 
   let ttl =0;
-  display.map ((food)=>ttl += (food.price*((100-food.discount)/100)))
-
+  display.map ((food,idx)=>ttl += ((food.price*((100-food.discount)/100))*valNum[idx]))
   return (
     <>
       <NavBar></NavBar>
@@ -58,8 +80,8 @@ export default function Shopping() {
           <div>Delete</div>
         </div><br />
 
-        {display.map((food)=>(       
-          <div className="header">
+        {display.map((food,idx)=>(       
+          <div key={idx} className="header">
             <img className="shopImg" src={food.image} alt={"No"} />
             <div>
               <div id="shopTl">{food.name}</div>
@@ -68,11 +90,16 @@ export default function Shopping() {
             <div>{food.price} USD</div>
             <div>{food.discount}%</div>
             
-            <div className="shopAmount">
-              <input className="shopNum" type="number" min="1" max="10" value="1"></input>
+            <div >
+              <div className="shopAmount">
+                <button className="shopme" min="1" id={idx} onClick={(e)=>minCant(e)}>-</button>
+                <input disabled = {true}  id={idx} className="shopNum" type="text" value = {valNum[idx]} onChange = {(e)=>fnValNum(e)}></input>              
+                <button className="shopma" id={idx+","+food.amount} onClick={(e)=>masCant(e)}>+</button>
+              </div>
+              <div className="perMax">(Max {food.amount})</div>
             </div>
-            <div>{((food.price*((100-food.discount)/100))*1).toFixed(2)}</div>
-            <button>❌</button>
+            <div>{(((food.price*((100-food.discount)/100))*1).toFixed(2))*parseInt(valNum[idx])} USD</div>
+            <button className="btnX">❌</button>
           </div>
         ))}
 

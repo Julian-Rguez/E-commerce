@@ -29,7 +29,7 @@
 }
 .header,.header2{
   display: grid;
-  grid-template-columns: 9% 30% 13% 13% 13% 13% 13%;
+  grid-template-columns: 9% 30% 12% 12% 17% 12% 12%;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 15px;
@@ -44,10 +44,9 @@
   border-left: 0px solid #858585cc;
   border-right: 0px solid #858585cc;
 }
-.header button, .header2 button{
+.btnX{
   width: 20px;
   height: 20px;
-  border-radius: 10px;
   font-weight: bold;
   border: none;
 }
@@ -59,17 +58,46 @@
 }
 .shopAmount{
   display: grid;
-  grid-template-columns: 25% 25% 25%;
+  grid-template-columns: 15% 25% 15%;
+}
+#shopTl{
+  font-weight: bold;
 }
 .shopNum{
-  height: 22px;
+  height: 24px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  border-top: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+}
+.shopma,.shopme{
+  height: 24px;
+  width: 100%;
+  font-weight: bold;
+  border: none;
+  background-color: #d6d6d6;
+}
+.shopma{
+  border-radius: 0px 4px 4px 0px ;
+  border-top: 1px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+}
+.shopme{
+  border-radius: 4px 0px 0px 4px ;
+  border-top: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
 }
 #shopTotal{
   display: grid;
   grid-template-columns: 80% 20%;
   font-weight: bold;
 }
-#shopTl{
-  font-weight: bold;
+.perMax{
+  width: 55%;
+  text-align: center;
+  color: rgb(124, 124, 124);
 }
 
