@@ -14,25 +14,13 @@ import {
   MenuItem,
   Button,
 } from "@mui/material";
+import { FormGroup } from "reactstrap";
+import { useState } from "react";
 // import { postAccessories } from "../../../redux/actions/actions";
 
 export const FoodForm = () => {
-  // const dispatch = useDispatch();
-  // const onFileSelect = (file) => {
-  //   console.log("File changed: ", file);
-  //   if (file) {
-  //     file.done((info) => console.log("File uploaded: ", info));
-  //   }
-  // };
-  // const uploadFileSelect = (file) => {
-  //   if (!file) {
-  //     console.log("File removed from widget");
-  //   }
-  //   file.done((fileInfo) => {
-  //     setValues.image(fileInfo.originalUrl);
-  //     console.log("done");
-  //   });
-  // };
+  
+  const [ loding, setLonding] = useState(false)
 
   const {
     errors,
@@ -108,6 +96,27 @@ export const FoodForm = () => {
       resetForm({ values: "" });
     },
   });
+
+  const uqdat = async (e)=> {
+    const files = e.target.files
+    const data2 = new FormData()
+    data2.append("file", files[0])
+    data2.append("upload_preset", "images")
+    setLonding(true)
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/bl3ychz/image/upload",
+      {
+        method: "POST",
+        body: data2
+      }
+    )
+    const file = await res.json()
+    setLonding(false)
+    return setValues({
+      ...values,
+       image : file.secure_url })
+  }
+
   return (
     <>
       <Link to="/dashboard/foods">
@@ -296,25 +305,6 @@ export const FoodForm = () => {
             }
             {...getFieldProps("description")}
           />
-          {/* <fieldset>
-            <legend>Image</legend>
-            <Widget
-              // className="uploader"
-              publicKey={"31565ad8e1a6027b4914"}
-              name="image"
-              value={values.image}
-              previewStep
-              clearable
-              crop
-              margin="normal"
-              onChange={(e) => setFieldValue("image", e.originalUrl)}
-              onFileSelect={onFileSelect}
-              // {...getFieldProps('image')}
-            />
-            {touched.image && errors.image && (
-              <span className="error">{errors.image}</span>
-            )}
-          </fieldset> */}
           <TextField
             fullWidth
             name="quanlification"
@@ -355,6 +345,12 @@ export const FoodForm = () => {
             }
             {...getFieldProps("amount")}
           />
+          <FormGroup>
+          <fieldset>
+            <p>image</p>
+                <input type="file" name="file" onChange={uqdat}/>
+          </fieldset>
+          </FormGroup>
           <Button
             onClick={() => console.log("image", values.image)}
             color="primary"
