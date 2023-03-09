@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './card.css';
 import {Link} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -9,15 +9,29 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { green } from '@mui/material/colors';
 
-function Card({card,arrayInShopping,update}) {
+function Card({card,arrayInShopping,update, favorites, setFavorites}) {
 	const dispatch = useDispatch(); 
 	const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+
+
+	function handleFavoriteChange(e){
+		const filterFavorites= favorites.filter(fav => fav.id === e.id )
+		if(filterFavorites.length !== 0){
+			const newFavorites = favorites.filter(fav => fav.id !== e.id )
+			setFavorites(newFavorites)
+		}
+		else {const newFavorites = [...favorites, e]
+			setFavorites(newFavorites)
+			}
+	}
 
 	function addCar(e){
 		e.preventDefault();
 		dispatch (shopping(e.target.value))
 		update()
 	}
+
 	return (
 		<div className="cardd">
 		  <div></div>
@@ -35,7 +49,7 @@ function Card({card,arrayInShopping,update}) {
           '&.Mui-checked': {
             color: green[600],
           },
-        }}/>
+        }} onChange={() => handleFavoriteChange(card)}/>
 			</div>
 			<div className="conText">
 			  <div className="text2">type: {card.type} </div>
