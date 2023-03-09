@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+  
+  .dashboard{
+    display: flex;
+    top: 0;
+  }
+  main{
+    width: 100%;
+    padding: 20px;
+  }
+  .sidebar{
+    background-color:rgb(94, 196, 111);
+    height: 100vh;
+    padding: 1rem;
+    transition: all 0.5s;
+    justify-content: space-around;
+  }
+  .top-section{
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+  }
+  .dash-logo{
+    padding: 10px;
+  }
+  .bars{
+    display: flex;
+    font-size: 30px;
+  }
+  .dash-links{
+    height: 50%;
+  }
+  .dash-link{
+    display: flex;
+    color: white;
+    padding: 20px 20px;
+    gap: 20px;
+    transition: all 0.5s;
+  }
+  .dash-link:hover{
+    background-color: rgb(73, 155, 206);
+    color: white;
+    transition: all 0.5s;
+  }
+  .active {
+    background: rgba(70, 144, 119, 0.685);
+    color: black;
+  }
+  .icon, .link_text{
+    font-size: 20px;
+  }
+  .dropdown{
+    display: flex;
+    
+  }
+  
