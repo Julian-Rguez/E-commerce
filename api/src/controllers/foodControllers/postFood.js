@@ -17,6 +17,7 @@ module.exports = postFood = async (req, res) => {
       available,
       qualification,
       amount,
+      favorite,
     } = req.body;
     if (name) {
       const use = await Food.create({
@@ -34,6 +35,7 @@ module.exports = postFood = async (req, res) => {
         available,
         qualification,
         amount,
+        favorite
       });
       return res.status(200).json({ message: "Successfully created" });
     }
