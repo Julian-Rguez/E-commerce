@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 
-const { welcometemplate } = require("./templates/welcome.js");
+const { welcomeTemplate } = require("./templates/welcome.js");
+const { payTemplate } = require("../mail/templates/pay.js");
 
 module.exports = welcomeMail = async (req, res) => {
   var transporter = nodemailer.createTransport({
@@ -13,12 +14,27 @@ module.exports = welcomeMail = async (req, res) => {
     },
   });
 
-  var mailOptions = {
-    from: '"Welcome new user!" <deligou70@gmail.com>',
-    to: `${req.body.mail}`,
-    subject: "Welcome to Deli-Gou Web-App",
-    html: welcometemplate(req.body),
-  };
+  var mailOptions;
+
+  switch (req.body.mailType) {
+    case "newUser":
+      mailOptions = {
+        from: '"Welcome new user!" <info@deligou.com>',
+        to: `${req.body.mail}`,
+        subject: "Welcome to Deli-Gou Web-App",
+        html: welcomeTemplate(req.body),
+      };
+    case "pay":
+      mailOptions = {
+        from: '"Here is your bill info" <info@deligou.com>',
+        to: `${req.body.mail}`,
+        subject: "Thank you for your purchase!",
+        html: payTemplate(req.body),
+      };
+
+    default:
+      break;
+  }
 
   await transporter.sendMail(mailOptions, (error) => {
     if (error) {
