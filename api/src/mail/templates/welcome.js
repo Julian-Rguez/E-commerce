@@ -1,4 +1,4 @@
-const welcometemplate = (data) => {
+const welcomeTemplate = (data) => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -456,7 +456,7 @@ const welcometemplate = (data) => {
                     href="https://deligou.com"
                     class="f-fallback email-masthead_name"
                   >
-                    DELI-GOU E-Commerce
+                    Deli-Gou
                   </a>
                 </td>
               </tr>
@@ -482,7 +482,7 @@ const welcometemplate = (data) => {
                         <div class="f-fallback">
                           <h1>Welcome, ${data.roll}!</h1>
                           <p>
-                            Thanks for trying DELI-GOU. We’re thrilled to have you
+                            Thanks for trying Deli-Gou. We’re thrilled to have you
                             on board.
                           </p>
                           <!-- Action -->
@@ -526,7 +526,7 @@ const welcometemplate = (data) => {
                                     >
                                   <![endif]-->
                                   <span style="mso-text-raise: 15pt"
-                                    >I am a button &rarr;</span
+                                    >I am a button</span
                                   >
                                   <!--[if mso]>
                                     <i
@@ -550,12 +550,12 @@ const welcometemplate = (data) => {
                             <a href="deligou-chat.com">live chat</a> during
                             business hours.
                           </p>
-                          <p>Thanks, <br />The DELI-GOU team</p>
+                          <p>Thanks, <br />The Deli-Gou team</p>
                           <p>
                             <strong>P.S.</strong> Need immediate help getting
                             started? Check out our
                             <a href="deligou-help.com">help documentation</a>. Or,
-                            just reply to this email, the DELIGOU support team is
+                            just reply to this email, the Deli-Gou support team is
                             always ready to help!
                           </p>
                           <!-- Sub copy -->
@@ -596,13 +596,13 @@ const welcometemplate = (data) => {
       />
     </div>
                     <tr>
-                      <td class="content-cell" align="center">
-                        <p class="f-fallback sub align-center">
-                          [DELI-GOU, LLC]
-                          <br />1234 LATAM Street Rd. <br />Suite 1234
-                        </p>
-                      </td>
-                    </tr>
+                        <td class="content-cell" align="center">
+                          <p class="f-fallback sub align-center">
+                            Deli-Gou, LLC
+                            <br />2023 Pearcol Street Rd. <br />Latam 1234
+                          </p>
+                        </td>
+                      </tr>
                   </table>
                 </td>
               </tr>
@@ -615,4 +615,4 @@ const welcometemplate = (data) => {
   `;
 };
 
-module.exports = { welcometemplate };
+module.exports = { welcomeTemplate };
