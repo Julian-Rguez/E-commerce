@@ -8,24 +8,39 @@ import { MDBCarousel, MDBCarouselItem } from "mdb-react-ui-kit";
 import logoLogin from "../../assets/images/logo.png";
 import {reactLocalStorage} from 'reactjs-localstorage';
 import "./login.css";
+import { useDispatch } from "react-redux";
+import { updateRoll } from "../../Redux/Actions/Actions";
+
 export default function Login() {
+  const dispatch = useDispatch();
   const { isAuthenticated } = useAuth0();
   let [PWadmin,setPWadmin] = useState (true);
   let [pw,setpw] = useState ("");
   reactLocalStorage.set("Shopping", "0")
+  reactLocalStorage.set("ShoppingCant", "0")
   function adminCheck(e){
-    if (e.target.checked) {
-      document.getElementById ("txtLogin").disabled =false;
-      setPWadmin (false)
-    }
-    else {
-      document.getElementById ("txtLogin").disabled =true;
-      setPWadmin (true)};
+      if (e.target.checked) {
+        document.getElementById ("txtLogin").disabled =false;
+        setPWadmin (false)
+      }
+      else {
+        document.getElementById ("txtLogin").disabled =true;
+        setPWadmin (true)
+      };
+      setpw ("");
+      dispatch(updateRoll("client"))
     }
     function adminChange(e){
       e.preventDefault();
       setpw (e.target.value);
-      if (e.target.value ==="12345678") setPWadmin (true)
+      if (e.target.value ==="12345678") {
+        setPWadmin (true)
+        dispatch(updateRoll("admin"))
+      }
+      else {
+        setPWadmin (false)
+        dispatch(updateRoll("client"))
+      }
     }
   function msn(e) {
     e.preventDefault();
@@ -51,17 +66,21 @@ export default function Login() {
         </div>
         <div id="loginButtonGoToHomepage">
           <div id="int">
-            {/* <h3>Food at home</h3> */}
             <p>
               Authenticate with Google and access our website, we'll save your data for extra benefits and we'll keep you
               informed.
             </p>
+            <label>
+              <input type="checkbox" onClick={(e)=>adminCheck(e)}/>
+              &nbsp;&nbsp;&nbsp;Administrator &nbsp;&nbsp;
+              <input  type="password" maxlength="8" className="txtLogin" id="txtLogin"  placeholder = "Password" disabled = {true} value ={pw} onChange = {(e)=>adminChange(e)} />
+            </label><br /><br />
             {
             isAuthenticated? (
               <>
                 <button
                   onClick={(e) => msn(e)}
-                  class="btn btn-success"
+                  className="btn btn-success"
                 >
                   Login Google 🡆
                 </button>
@@ -78,11 +97,6 @@ export default function Login() {
               Login Google 🡆
             </button>
             )}
-            <br /><br /><label>
-              <input type="checkbox" onClick={(e)=>adminCheck(e)}/>
-              &nbsp;&nbsp;&nbsp;Administrator &nbsp;&nbsp;
-              <input  type="password" maxlength="8" className="txtLogin" id="txtLogin"  placeholder = "Password" disabled = {true} value ={pw} onChange = {(e)=>adminChange(e)} />
-            </label>
             <br /><p><br />
               or you can enter as a guest and know our page and our products
             </p>

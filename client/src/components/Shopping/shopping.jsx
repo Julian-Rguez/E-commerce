@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {reactLocalStorage} from 'reactjs-localstorage';
-import {getAllFoods} from '../../Redux/Actions/Actions'
+import {getAllFoods, shopping} from '../../Redux/Actions/Actions'
 import "./shopping.css";
 import NavBar from "../Nav/NavBar";
 import Footer from "../Footer/Footer";
@@ -15,23 +15,43 @@ export default function Shopping() {
   }
   function minCant(e){
     e.preventDefault();
-    let current = (parseInt(valNum[e.target.id]));
-    if (current>1) valNum[e.target.id] = current -1;
-    settotal (valNum[e.target.id]) 
+    const inf = e.target.id.split(",")
+    let current = (parseInt(valNum[inf[0]]));
+    if (current>1) {
+      valNum[inf[0]] = (current-1).toString()
+      settotal (valNum[inf[0]])     
+      let save = valNum;
+      save.unshift("0")
+      reactLocalStorage.set("ShoppingCant", save)
+    } 
   }
   function masCant(e){
     e.preventDefault();
     const inf = e.target.id.split(",")
     let current = (parseInt(valNum[inf[0]]));
-    if (current<(parseInt(inf[1]))) valNum[inf[0]] = current+1;
-    settotal (valNum[inf[0]]) 
+    if (current<(parseInt(inf[1]))) {
+      valNum[inf[0]] = (current+1).toString()
+      settotal (valNum[inf[0]])     
+      let save = valNum;
+      save.unshift("0")
+      reactLocalStorage.set("ShoppingCant", save)
+    }    
   }
-
+  function ShopDelete (e){
+    e.preventDefault();    
+		dispatch (shopping(e.target.id))
+    settt (tt-1)
+  }
 
   const dispatch = useDispatch();
   const [total,settotal] = useState(10)
   const display = []
-  const [valNum] =useState ([])
+  const info = (reactLocalStorage.get('Shopping')).split(",");
+  const dataCant = (reactLocalStorage.get('ShoppingCant')).split(",")
+  dataCant.shift();
+  const [valNum] =useState (dataCant)
+  const [tt,settt] = useState (dataCant.length)
+  
   useEffect(() => {
     dispatch(getAllFoods())
    },[dispatch]);
@@ -51,15 +71,14 @@ export default function Shopping() {
     discount:1,
     review:[]
   }]
-  const info = (reactLocalStorage.get('Shopping')).split(",");
 
   foods.map ((food)=>{
     if (info.includes (food.id)){
-      if (valNum.length === display.length) valNum.push("1")
       display.push(food)
     }
   })
-  
+
+  if (valNum[0] ==="0") {console.log("borrado");valNum.shift()}; 
 
   let ttl =0;
   display.map ((food,idx)=>ttl += ((food.price*((100-food.discount)/100))*valNum[idx]))
@@ -68,7 +87,7 @@ export default function Shopping() {
       <NavBar></NavBar>
       <div className="ShopContainer1">
         <div className="ShopContainer1a">
-          <div className="ShopTittle">Shopping cart</div>
+          <div className="ShopTittle">Shopping cart ({tt})</div>
         </div>
         <div className="header2">
           <div></div>
@@ -77,7 +96,7 @@ export default function Shopping() {
           <div>Discount</div>
           <div>Amount</div>
           <div>Total</div>
-          <div>Delete</div>
+          <div className="btnXTittle">Delete</div>
         </div><br />
 
         {display.map((food,idx)=>(       
@@ -98,8 +117,8 @@ export default function Shopping() {
               </div>
               <div className="perMax">(Max {food.amount})</div>
             </div>
-            <div>{(((food.price*((100-food.discount)/100))*1).toFixed(2))*parseInt(valNum[idx])} USD</div>
-            <button className="btnX">❌</button>
+            <div>{((((food.price*((100-food.discount)/100))*1).toFixed(2))*parseInt(valNum[idx])).toFixed(2)} USD</div>
+            <button id={food.id} onClick={(e)=>ShopDelete(e)} className="btnX">❌</button>
           </div>
         ))}
 

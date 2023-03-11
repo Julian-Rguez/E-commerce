@@ -23,6 +23,7 @@ const NavBar = ({favorites}) => {
             <Nav.Link href="features">Features</Nav.Link>
             <Nav.Link href="pricing">Pricing</Nav.Link>
             <Nav.Link href="shopping">Shopping</Nav.Link>
+            <Nav.Link href="review">Review Pending</Nav.Link>
           </Nav>
           <FavoriteButton favorites = {favorites}></FavoriteButton>
           {isAuthenticated ? (

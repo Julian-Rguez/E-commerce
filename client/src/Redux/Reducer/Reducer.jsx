@@ -1,16 +1,22 @@
-import {POST_USER,ADDSHOPPING, GET_FILTER_FOODS, GET_ALL_FOODS, SEARCH, GET_DETAILS } from '../Actions/Constantes'
+import {UPDATE_ROLL, POST_USER,ADDSHOPPING, GET_FILTER_FOODS, GET_ALL_FOODS, SEARCH, GET_DETAILS } from '../Actions/Constantes'
 
 
 const initialState = {
     foods: [],
     allFoods: [],
     shopping: [],
-    users:[]
+    users:[],
+    roll:"client"
 }
 
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case UPDATE_ROLL:
+            return {
+                ...state,
+                roll: [...state.roll, action.payload]
+            }
         case POST_USER:
             return {
                 ...state,
