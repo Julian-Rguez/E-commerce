@@ -102,7 +102,7 @@ export default function Login() {
             </p>
             <Link to="/home">
               <button  className="btn btn-success">
-                Go like invited 🡆
+              Direct income 🡆
               </button>
             </Link>
           </div>
