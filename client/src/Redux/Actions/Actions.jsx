@@ -4,7 +4,7 @@ import {UPDATE_ROLL, URL_API, POST_USER,ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_F
 
 export const postUser = (payload) => async (dispatch) => {
     try {
-      const accessoriesCreated = await axios.post(`${URL_API}user`, payload)
+      const accessoriesCreated = await axios.post(`${URL_API}users`, payload)
       return dispatch({
         type: POST_USER,
         payload: accessoriesCreated
@@ -46,7 +46,7 @@ export const getfilterFoods = (payload) => {
 export function getDetail(id) {
     return async function (dispatch) {
         try {
-            const res = await axios.get(`${URL_API}food/${id}`)
+            const res = await axios.get(`${URL_API}foods/${id}`)
             return dispatch({
                 type: GET_DETAILS,
                 payload: res.data
