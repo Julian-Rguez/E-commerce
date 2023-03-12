@@ -12,6 +12,7 @@ const postBill = require("../controllers/billControllers/postBill");
 const putBill = require("../controllers/billControllers/putBill");
 const putFood = require("../controllers/foodControllers/putFood.js");
 const welcomeMail  = require("../mail/emailer.js");
+const postPayment = require("../payment/index.js");
 
 router.get("/foods", getFoods);
 router.get("/food/:id", getFoodById);
@@ -26,4 +27,6 @@ router.delete("/user/:id", deleteUser);
 
 router.post("/bill", postBill);
 router.put("/billPut", putBill);
+
+router.post("/payment", postPayment);
 module.exports = router;
