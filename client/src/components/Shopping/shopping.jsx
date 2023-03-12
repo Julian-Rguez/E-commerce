@@ -6,6 +6,7 @@ import "./shopping.css";
 import NavBar from "../Nav/NavBar";
 import Footer from "../Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 export default function Shopping() {
   function fnValNum(e){
@@ -131,7 +132,19 @@ export default function Shopping() {
             <button className="btn btn-success"> Go back </button>
           </Link>
           <div id="Separate"></div>
-          <button className="btn btn-success">Start pay</button>
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              axios
+                .post("http://localhost:3001/payment", foods[3])
+                .then(
+                  (res) =>
+                    (window.location.href = res.data.response.body.init_point)
+                );
+            }}
+          >
+            Start pay
+          </button>
         </div><br />
       </div>
       <Footer></Footer>
