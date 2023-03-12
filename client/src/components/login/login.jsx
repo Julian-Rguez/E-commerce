@@ -27,6 +27,7 @@ export default function Login() {
         document.getElementById ("txtLogin").disabled =true;
         setPWadmin (true)
       };
+      document.getElementById("iconApro").innerText = "❌"
       setpw ("");
       dispatch(updateRoll("client"))
     }
@@ -34,10 +35,12 @@ export default function Login() {
       e.preventDefault();
       setpw (e.target.value);
       if (e.target.value ==="12345678") {
+        document.getElementById("iconApro").innerText = "✔️"
         setPWadmin (true)
         dispatch(updateRoll("admin"))
       }
-      else {
+      else {        
+        document.getElementById("iconApro").innerText = "❌"
         setPWadmin (false)
         dispatch(updateRoll("client"))
       }
@@ -70,11 +73,12 @@ export default function Login() {
               Authenticate with Google and access our website, we'll save your data for extra benefits and we'll keep you
               informed.
             </p>
-            <label>
-              <input type="checkbox" onClick={(e)=>adminCheck(e)}/>
-              &nbsp;&nbsp;&nbsp;Administrator &nbsp;&nbsp;
+            <div className="aut">
+              <input type="checkbox" className="mycheck" onClick={(e)=>adminCheck(e)}/>
+              <div>Administrator</div>  
               <input  type="password" maxlength="8" className="txtLogin" id="txtLogin"  placeholder = "Password" disabled = {true} value ={pw} onChange = {(e)=>adminChange(e)} />
-            </label><br /><br />
+              <div id="iconApro">❌</div>
+            </div> <br />
             {
             isAuthenticated? (
               <>
