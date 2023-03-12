@@ -43,7 +43,7 @@ const handleBoxMouseLeave = () => {
           onMouseLeave={handleBoxMouseLeave}
         >
             
-               {favorites.length? favorites.map(fav => { 
+               {favorites? favorites.map(fav => { 
                return <div className='favs-container'>
                 <img src={fav.image} alt="" id='favs-image'/>
                 <div>
