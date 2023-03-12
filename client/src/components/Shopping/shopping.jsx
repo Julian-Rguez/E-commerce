@@ -1,15 +1,57 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { reactLocalStorage } from 'reactjs-localstorage';
-import { getAllFoods } from '../../Redux/Actions/Actions'
+import { getAllFoods, shopping } from '../../Redux/Actions/Actions'
 import "./shopping.css";
 import NavBar from "../Nav/NavBar";
 import Footer from "../Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Shopping() {
+  function fnValNum(e){
+    e.preventDefault();
+    valNum[e.target.id] = e.target.value;
+    settotal (e.target.value)
+  }
+  function minCant(e){
+    e.preventDefault();
+    const inf = e.target.id.split(",")
+    let current = (parseInt(valNum[inf[0]]));
+    if (current>1) {
+      valNum[inf[0]] = (current-1).toString()
+      settotal (valNum[inf[0]])     
+      let save = valNum;
+      save.unshift("0")
+      reactLocalStorage.set("ShoppingCant", save)
+    } 
+  }
+  function masCant(e){
+    e.preventDefault();
+    const inf = e.target.id.split(",")
+    let current = (parseInt(valNum[inf[0]]));
+    if (current<(parseInt(inf[1]))) {
+      valNum[inf[0]] = (current+1).toString()
+      settotal (valNum[inf[0]])     
+      let save = valNum;
+      save.unshift("0")
+      reactLocalStorage.set("ShoppingCant", save)
+    }    
+  }
+  function ShopDelete (e){
+    e.preventDefault();    
+		dispatch (shopping(e.target.id))
+    settt (tt-1)
+  }
+
   const dispatch = useDispatch();
+  const [total,settotal] = useState(10)
   const display = []
+  const info = (reactLocalStorage.get('Shopping')).split(",");
+  const dataCant = (reactLocalStorage.get('ShoppingCant')).split(",")
+  dataCant.shift();
+  const [valNum] =useState (dataCant)
+  const [tt,settt] = useState (dataCant.length)
+  
   useEffect(() => {
     dispatch(getAllFoods())
   }, [dispatch]);
@@ -29,25 +71,24 @@ export default function Shopping() {
     discount: 1,
     review: []
   }]
-  const info = (reactLocalStorage.get('Shopping')).split(",");
 
   foods.map((food) => {
     if (info.includes(food.id)) {
       display.push(food)
     }
   })
-  console.log(foods[3]);
+
+  if (valNum[0] ==="0") {console.log("borrado");valNum.shift()}; 
 
   let ttl = 0;
-  display.map((food) => ttl += (food.price * ((100 - food.discount) / 100)))
-
+  display.map((food,idx) => ttl += ((food.price * ((100 - food.discount) / 100))*valNum[idx]))
   return (
     <>
       <div className="bkn">
         <NavBar></NavBar>
         <div className="ShopContainer1">
           <div className="ShopContainer1a">
-            <div className="ShopTittle">Shopping cart</div>
+            <div className="ShopTittle">Shopping cart ({tt})</div>
           </div>
           <div className="header2">
             <div></div>
@@ -56,11 +97,11 @@ export default function Shopping() {
             <div>Discount</div>
             <div>Amount</div>
             <div>Total</div>
-            <div>Delete</div>
+            <div className="btnXTittle">Delete</div>
           </div><br />
 
-          {display.map((food) => (
-            <div className="header">
+          {display.map((food,idx) => (
+            <div key={idx} className="header">
               <img className="shopImg" src={food.image} alt={"No"} />
               <div>
                 <div id="shopTl">{food.name}</div>
@@ -69,11 +110,16 @@ export default function Shopping() {
               <div>{food.price} USD</div>
               <div>{food.discount}%</div>
 
-              <div className="shopAmount">
-                <input className="shopNum" type="number" min="1" max="10" value="1"></input>
+            <div >
+                <div className="shopAmount">
+                  <button className="shopme" min="1" id={idx} onClick={(e)=>minCant(e)}>-</button>
+                <input disabled = {true}  id={idx} className="shopNum" type="text" value = {valNum[idx]} onChange = {(e)=>fnValNum(e)}></input>              
+                <button className="shopma" id={idx+","+food.amount} onClick={(e)=>masCant(e)}>+</button>
               </div>
-              <div>{((food.price * ((100 - food.discount) / 100)) * 1).toFixed(2)}</div>
-              <button>❌</button>
+              <div className="perMax">(Max {food.amount})</div>
+              </div>
+              <div>{((((food.price * ((100 - food.discount) / 100)) * 1).toFixed(2))*parseInt(valNum[idx])).toFixed(2)} USD</div>
+              <button id={food.id} onClick={(e)=>ShopDelete(e)} className="btnX">❌</button>
             </div>
           ))}
 

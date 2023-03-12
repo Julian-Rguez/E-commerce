@@ -1,8 +1,4 @@
 .loginContainer {
-  /* position: absolute; */
-  /* width: 100%;
-  height: 100%;
-  margin: 100px; */
   text-align: center;
   background-color: #2523231f;
   margin: auto;
@@ -26,19 +22,7 @@
   padding: 25px;
   position: relative;
   text-align: center;
-  /* margin: 8%; */
-  /* margin-top: 6%; */
-  /* transform: translate(-50%, -50%); */
-  /* top: 30%;
-  left: 40%; */
-  /* padding-left: 15px;
-  padding-top: 40px; */
 }
-/* #int {
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-} */
 #int p {
   text-align: justify;
 }
@@ -46,15 +30,15 @@
   position: absolute;
   right: 0;
   top: 0;
-  /* width: 100vh;
-  height: auto;
-  margin: 0;
-  left: 0;
-  top: 0;
-  opacity: 0.95; */
   z-index: -1;
 }
 .txtLogin{
-  width: 40%;
-  height: 60%;
+  height: 20px;
+}
+.aut{
+  display: grid;
+  grid-template-columns: 15% 40% 35% 10% ;
+}
+.mycheck {
+  height: 80%;
 }

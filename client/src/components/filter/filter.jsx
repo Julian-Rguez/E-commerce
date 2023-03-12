@@ -102,7 +102,9 @@ export default function Filter ({paginate}) {
             xclude[0].includes(obj)?
             <div className="imgtaFalse" onClick={(e)=>filter (e,obj,0 )} key={ind}>
               <div>
-                {obj ==="Dessert"?<img  id="filterimg" src="https://album.mediaset.es/eimg/2020/06/16/6hHUb5NRUCam8q1fwmYPu5.jpg?w=480" alt={"No"} />:
+                {
+                obj ==="Salad"?<img  id="filterimg" src="https://previews.123rf.com/images/artcasta/artcasta1605/artcasta160500015/58729322-la-porci%C3%B3n-de-ensalada-verde-fresca-con-queso-mozzarella-sobre-un-fondo-blanco.jpg" alt={"No"} />:
+                obj ==="Dessert"?<img  id="filterimg" src="https://album.mediaset.es/eimg/2020/06/16/6hHUb5NRUCam8q1fwmYPu5.jpg?w=480" alt={"No"} />:
                 obj ==="Appetizer"?<img  id="filterimg" src="https://static.vecteezy.com/system/resources/thumbnails/001/740/787/small/round-ring-snacks-in-a-basket-free-photo.jpg" alt={"No"} />:
                 obj ==="Drink"?<img  id="filterimg" src="https://thumbs.dreamstime.com/b/bebida-roja-8623697.jpg" alt={"No"} />:
                 <img  id="filterimg" src="https://s1.1zoom.me/big0/648/The_second_dishes_Potato_Meat_products_Vegetables_563131_1280x853.jpg" alt={"No"} />}
@@ -113,7 +115,9 @@ export default function Filter ({paginate}) {
             </div>:
             <div className="imgtTrue" onClick={(e)=>filter (e,obj,0 )} key={ind}>
             <div>
-              {obj ==="Dessert"?<img  id="filterimg" src="https://album.mediaset.es/eimg/2020/06/16/6hHUb5NRUCam8q1fwmYPu5.jpg?w=480" alt={"No"} />:
+              {
+              obj ==="Salad"?<img  id="filterimg" src="https://previews.123rf.com/images/artcasta/artcasta1605/artcasta160500015/58729322-la-porci%C3%B3n-de-ensalada-verde-fresca-con-queso-mozzarella-sobre-un-fondo-blanco.jpg" alt={"No"} />:
+              obj ==="Dessert"?<img  id="filterimg" src="https://album.mediaset.es/eimg/2020/06/16/6hHUb5NRUCam8q1fwmYPu5.jpg?w=480" alt={"No"} />:
               obj ==="Appetizer"?<img  id="filterimg" src="https://static.vecteezy.com/system/resources/thumbnails/001/740/787/small/round-ring-snacks-in-a-basket-free-photo.jpg" alt={"No"} />:
               obj ==="Drink"?<img  id="filterimg" src="https://thumbs.dreamstime.com/b/bebida-roja-8623697.jpg" alt={"No"} />:
               <img  id="filterimg" src="https://s1.1zoom.me/big0/648/The_second_dishes_Potato_Meat_products_Vegetables_563131_1280x853.jpg" alt={"No"} />}

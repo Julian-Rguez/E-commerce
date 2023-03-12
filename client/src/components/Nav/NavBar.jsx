@@ -7,8 +7,9 @@ import Navbar from "react-bootstrap/Navbar";
 import { LogoutButton } from "../Auth/LogoutButton";
 import "./NavBar.css";
 import Logo from "../../assets/images/navLogo.png"
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
-const NavBar = () => {
+const NavBar = ({favorites}) => {
   const { isAuthenticated, user } = useAuth0();
 
   return (
@@ -22,16 +23,18 @@ const NavBar = () => {
             <Nav.Link href="contact">Contact</Nav.Link>
             {/* <Nav.Link href="pricing">Pricing</Nav.Link> */}
             <Nav.Link href="shopping">Shopping</Nav.Link>
+            <Nav.Link href="review">Review Pending</Nav.Link>
           </Nav>
+          <FavoriteButton favorites = {favorites}></FavoriteButton>
           {isAuthenticated ? (
             <img className="navImg" src={user.picture} alt={"No"} />
-          ) : (
-            <img
+            ) : (
+              <img
               className="navImg"
               src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png"
               alt={"No"}
-            />
-          )}
+              />
+              )}
           {isAuthenticated ? (
             <h3 id="autentic">{user.email}</h3>
           ) : (
@@ -39,8 +42,8 @@ const NavBar = () => {
           )}
           {isAuthenticated ? (
             <LogoutButton />
-          ) : (
-            <Link to="/">
+            ) : (
+              <Link to="/">
               <button type="button" className="btn btn-light">
                 Login
               </button>

@@ -1,13 +1,24 @@
 import axios from 'axios'
 import {reactLocalStorage} from 'reactjs-localstorage';
-import {URL_API, POST_USER,ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS } from './Constantes'
+import {UPDATE_ROLL, URL_API, POST_USER,ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS } from './Constantes'
 
 export const postUser = (payload) => async (dispatch) => {
     try {
-      const accessoriesCreated = await axios.post(`${URL_API}user`, payload)
+      const accessoriesCreated = await axios.post(`${URL_API}users`, payload)
       return dispatch({
         type: POST_USER,
         payload: accessoriesCreated
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  export const updateRoll = (payload) => async (dispatch) => {
+    try {
+      return dispatch({
+        type: UPDATE_ROLL,
+        payload: payload
       })
     } catch (e) {
       console.log(e)
@@ -35,7 +46,7 @@ export const getfilterFoods = (payload) => {
 export function getDetail(id) {
     return async function (dispatch) {
         try {
-            const res = await axios.get(`${URL_API}food/${id}`)
+            const res = await axios.get(`${URL_API}foods/${id}`)
             return dispatch({
                 type: GET_DETAILS,
                 payload: res.data
@@ -55,16 +66,23 @@ export const setSearch = (payload) => {
 
 export const shopping = (payload) => {
     const data = (reactLocalStorage.get('Shopping')).split(",")
+    const dataCant = (reactLocalStorage.get('ShoppingCant')).split(",")
     let dataupdate =[];
+    let dataCantupdate =[];
     if (data.includes(payload)){
-        dataupdate = data.filter(id => id != payload);
+        const pos = data.indexOf(payload);
+        dataCant[pos] = "delete";
+        dataupdate = data.filter(id => id !== payload);
+        dataCantupdate = dataCant.filter(val => val !== "delete");
     }
     else {
         data.push (payload);
+        dataCant.push ("1");
         dataupdate = data;
+        dataCantupdate =dataCant;
     }
     reactLocalStorage.set("Shopping", dataupdate)
-    
+    reactLocalStorage.set("ShoppingCant", dataCantupdate)
     
     return {
         type: ADDSHOPPING,
