@@ -487,18 +487,20 @@ const payTemplate = (data) => {
     
                             <!-- Bill info -->
                             <div>
-                              <span>Your bill ID: ${
-                                data.numeroFactura
+                              <span><b>Your bill ID:</b> ${
+                                data.billId.toUpperCase()
                               }</span><br />
                               <hr />
-                              <span>Products: ${data.productos}</span><br />
+                              <span><b>Products:</b> ${
+                                data.products
+                              }</span><br />
                               <hr />
-                              <span>Total: $${data.valor} - Discount: ${
-    data.descuento
-  }%</span
+                              <span><b>Total:</b> $${
+                                data.value
+                              } <b>- Discount:</b> ${data.discount}%</span
                               ><br />
-                              <span>Final value: $${
-                                data.valor - data.descuento
+                              <span><b>Final value:</b> $${
+                                (data.value - (data.value * data.discount / 100))
                               }</span>
                             </div>
     
