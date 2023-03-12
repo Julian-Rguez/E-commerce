@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {reactLocalStorage} from 'reactjs-localstorage';
-import {URL_API, POST_USER,ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS } from './Constantes'
+import {URL_API, POST_USER,ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS, POST_FOOD, GET_ALL_USERS } from './Constantes'
 
 export const postUser = (payload) => async (dispatch) => {
     try {
@@ -8,6 +8,28 @@ export const postUser = (payload) => async (dispatch) => {
       return dispatch({
         type: POST_USER,
         payload: accessoriesCreated
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  export const getAllUsers = () => async (dispatch) => {
+    try {
+        const { data } = await axios.get(`${URL_API}users`)
+        dispatch({
+            type: GET_ALL_USERS,
+            payload: data
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+  export const postFood = (payload) => async (dispatch) => {
+    try {
+      const foodsCreated = await axios.post(`${URL_API}food`, payload)
+      return dispatch({
+        type: POST_FOOD,
+        payload: foodsCreated
       })
     } catch (e) {
       console.log(e)
