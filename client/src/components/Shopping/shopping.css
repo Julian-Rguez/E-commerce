@@ -45,10 +45,15 @@
   border-right: 0px solid #858585cc;
 }
 .btnX{
-  width: 20px;
+  width: 68%;
   height: 20px;
   font-weight: bold;
   border: none;
+  text-align: center;
+}
+.btnXTittle{
+  width: 68%;
+  text-align: center;
 }
 .shopImg{
   width: 50px;
