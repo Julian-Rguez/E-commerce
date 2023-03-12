@@ -65,12 +65,12 @@ img {
 }
 
 .img-devs .devs {
-  width: 25%;
+  width: 55%;
   max-width: 345px;
 }
 
 .img-devs2 .devs {
-  width: 45%;
+  width: 55%;
   max-width: 345px;
 }
 
@@ -95,4 +95,10 @@ img {
 
 .devs:hover {
   box-shadow: 0 8px 16px 10px rgba(0, 0, 0, 0.571);
+}
+
+@media only screen and (max-width: 750px) {
+  .img-devs .img-devs2 {
+    display: inline-block;
+  }
 }

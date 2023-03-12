@@ -16,6 +16,8 @@ import Foods from "../admin/pages/Foods/Foods";
 import Sales from "../admin/pages/Sales/Sales";
 import Dashboard from "../admin/pages/Dashboard/Dashboard";
 import { FoodForm } from "../admin/Components/Forms/FoodForm";
+import Terms from "../Pages/Footer/Terms";
+import Data from "../Pages/Footer/DataProtection";
 
 function RouteApp() {
   return (
@@ -30,6 +32,8 @@ function RouteApp() {
         <Route exact path="/validating" element={<Validating />} />
         <Route exact path="/shopping" element={<Shopping />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/termsandconditions" element={<Terms />} />
+        <Route exact path="/dataprotection" element={<Data />} />
 
         <Route exact path="/dashboard" element={<Dashboard />}>
           {/* <Route index element={<Nav />} /> */}

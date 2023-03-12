@@ -1,24 +1,24 @@
-import React,{ useEffect, useState} from "react";
-import { useDispatch,useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import "./home.css"
-import {getAllFoods} from '../../Redux/Actions/Actions'
+import { getAllFoods } from '../../Redux/Actions/Actions'
 import Cards from '../cards/cards'
 import Filter from "../filter/filter";
 import Footer from "../Footer/Footer";
 import NavBar from "../Nav/NavBar";
 export default function Home() {
 
-  
+
   const dispatch = useDispatch();
-  const [pag, setPag] = useState(1);  
-  const foods = useSelector((state) => state.foods);  
-  const [order, setorder] = useState ("Ascending")
-  const [depe, setdepe] = useState ("Name")  
+  const [pag, setPag] = useState(1);
+  const foods = useSelector((state) => state.foods);
+  const [order, setorder] = useState("Ascending")
+  const [depe, setdepe] = useState("Name")
   let ordenado = [];
 
   useEffect(() => {
     dispatch(getAllFoods())
-   },[dispatch]);
+  }, [dispatch]);
 
   //-------------------------------------------------
   if (order === "Ascending" && depe === "Type") {
@@ -67,33 +67,35 @@ export default function Home() {
   // foods = ordenado;
   //-------------------------------------------------
 
-    let cantXPag =  6;
-    let cant = (pag * cantXPag);  
-    let ini = (cant - cantXPag);  
-  
-    function fnDepe(e){
-      e.preventDefault();
-      setdepe(e.target.value)
-    }
-    function fnOrder (e){
-      e.preventDefault();
-      setorder(e.target.value)
-    }
+  let cantXPag = 6;
+  let cant = (pag * cantXPag);
+  let ini = (cant - cantXPag);
 
-    function paginate(e, num) {
-      e.preventDefault();
-      setPag(num); 
-    }
-  let foodXPag = foods.slice(ini, cant); 
+  function fnDepe(e) {
+    e.preventDefault();
+    setdepe(e.target.value)
+  }
+  function fnOrder(e) {
+    e.preventDefault();
+    setorder(e.target.value)
+  }
+
+  function paginate(e, num) {
+    e.preventDefault();
+    setPag(num);
+  }
+  let foodXPag = foods.slice(ini, cant);
   return (
     <>
-      <NavBar/>
-      <Cards 
-      foods={foodXPag} 
-      total={foods.length}
-      paginate={paginate} />  
+      <div className="fondo">
 
-        <Filter paginate={paginate}/>  
+        <NavBar />
+        <Cards
+          foods={foodXPag}
+          total={foods.length}
+          paginate={paginate} />
+
+        <Filter paginate={paginate} />
         <div className="ordenado">
           <div id="inorder" className="DeaZ2">
             Order for_
@@ -114,7 +116,8 @@ export default function Home() {
           </select>
         </div>
 
-      <Footer/>
+        <Footer />
+      </div>
     </>
   );
 }

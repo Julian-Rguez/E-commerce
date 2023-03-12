@@ -1,4 +1,4 @@
-.contFilter{
+.contFilter {
     position: absolute;
     border-radius: 5PX;
     top: 80px;
@@ -7,64 +7,96 @@
     height: 72%;
     border: 1px solid #acacaccc;
 }
-.filteTittle{
-color:  rgb(1, 104, 1);
-font-weight: bold;
-font-size: 130%;
-margin-top: 10px;
+
+.filteTittle {
+    color: rgb(1, 104, 1);
+    font-weight: bold;
+    font-size: 130%;
+    margin-top: 10px;
 }
-#filtercontenido{
-    margin-left: 15px;
-    margin-right: 15px;
+
+#filtercontenido {
+    margin-left: 0.9375em;
+    margin-right: 0.9375em;
     color: green;
     font-weight: bold;
     cursor: pointer;
 }
-#filterimg{
-    width: 70px;
-    height: 60px;
+
+#filterimg {
+    width: 4.375em;
+    height: 3.75em;
 }
-.filtername{
+
+.filtername {
     color: gray;
 }
-#filterimg2{
-    height: 30px;
+
+#filterimg2 {
+    height: 1.875em;
 }
-.filteSubTitle{
+
+.filteSubTitle {
     background-color: rgba(0, 128, 0, 0.199);
 }
-.filteSubTitletxt{
+
+.filteSubTitletxt {
     background-color: rgba(0, 128, 0, 0.199);
     border: none;
     width: 100%;
     color: green;
     font-weight: bold;
 }
-.filteSubTitletxt:active, .filteSubTitletxt:focus {
-    outline: none;  
+
+.filteSubTitletxt:active,
+.filteSubTitletxt:focus {
+    outline: none;
 }
-.filterGrops{
+
+.filterGrops {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0.625em;
+    margin-bottom: 1.25em;
 }
-.filterGrops2{
-    margin-top: 10px;
-    margin-bottom: 20px;
+
+.filterGrops2 {
+    margin-top: 0.625em;
+    margin-bottom: 1.25em;
 }
-.imgtaFalse,.imgtTrue{
+
+.imgtaFalse,
+.imgtTrue {
     width: 90%;
     border: 1px solid rgba(0, 128, 0, 0.384);
     border-radius: 4px;
 }
-.imgtaFalse{
+
+.imgtaFalse {
     filter: grayscale(1);
     opacity: 0.6;
 }
-#gr{
+
+#gr {
     display: grid;
     grid-template-columns: 30% 70%;
     border: none;
 }
 
+@media (max-width: 1536px) {
+    .filteTittle {
+        font-size: 0.80em;
+    }
+
+    .filteSubTitle {
+        font-size: 0.80em;
+    }
+
+    .filterGrops {
+        font-size: 0.80em;
+    }
+
+    .filterGrops2 {
+        font-size: 0.80em;
+    }
+}
