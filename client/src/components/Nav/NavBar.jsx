@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
+import {LinkContainer} from 'react-router-bootstrap'
 import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -16,14 +17,35 @@ const NavBar = ({favorites}) => {
     <>
       <Navbar bg="success" fixed="top" variant="dark">
         <Container>
-          <Navbar.Brand href="/home"><img src={Logo} alt="" className="navLogo"/></Navbar.Brand>
+        <LinkContainer  to="/home">
+          <Navbar.Brand ><img src={Logo} alt="" className="navLogo"/></Navbar.Brand>
+          </LinkContainer>
           <Nav className="me-auto">
-            <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="about">About</Nav.Link>
-            <Nav.Link href="features">Features</Nav.Link>
-            <Nav.Link href="pricing">Pricing</Nav.Link>
-            <Nav.Link href="shopping">Shopping</Nav.Link>
-            <Nav.Link href="review">Review Pending</Nav.Link>
+
+            <LinkContainer  to="/home">
+            <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+
+            <LinkContainer to="/about">
+            <Nav.Link>About</Nav.Link>
+            </LinkContainer>
+
+            <LinkContainer to="/features">
+            <Nav.Link>Features</Nav.Link>
+            </LinkContainer>
+
+            <LinkContainer to="/pricing">
+            <Nav.Link>Pricing</Nav.Link>
+            </LinkContainer>
+
+            <LinkContainer to="/shopping">
+            <Nav.Link>Shopping</Nav.Link>
+            </LinkContainer>
+            
+            <LinkContainer to="/review">
+            <Nav.Link>Review Pending</Nav.Link>
+            </LinkContainer>
+
           </Nav>
           <FavoriteButton favorites = {favorites}></FavoriteButton>
           {isAuthenticated ? (
