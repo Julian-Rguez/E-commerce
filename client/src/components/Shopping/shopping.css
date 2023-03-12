@@ -1,5 +1,12 @@
+.bkn {
+  background-image: url('../../assets/images/fondodeta.jpg');
+  background-size: cover;
+
+  height: 100%;
+}
+
 .ShopContainer1 {
-  margin: 23%; 
+  margin: 23%;
   margin-top: 5%;
   background-color: rgb(255, 255, 255, 0.3);
   color: #070707cc;
@@ -8,26 +15,31 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding-left: 15px;
 }
-.ShopContainer1a{
+
+.ShopContainer1a {
   margin: 5%;
   margin-top: 0px;
-  text-align:center;
-}
-#Separate{
-  width: 50%;
-}
-.ShopTittle{
-  font-size: 200%;
-  font-weight: 900;
-  color:#023047;
-  margin-top:20px
+  text-align: center;
 }
 
-.cbutondetail{
+#Separate {
+  width: 50%;
+}
+
+.ShopTittle {
+  font-size: 200%;
+  font-weight: 900;
+  color: #023047;
+  margin-top: 20px
+}
+
+.cbutondetail {
   display: flex;
   justify-content: center;
 }
-.header,.header2{
+
+.header,
+.header2 {
   display: grid;
   grid-template-columns: 9% 30% 12% 12% 17% 12% 12%;
   margin-left: 20px;
@@ -35,10 +47,12 @@
   margin-bottom: 15px;
   margin-left: 15px;
 }
-.header2{
+
+.header2 {
   background-color: rgba(199, 199, 199, 0.739);
 }
-.header{  
+
+.header {
   border: 1px solid #858585cc;
   border-top: 0px solid #858585cc;
   border-left: 0px solid #858585cc;
@@ -55,20 +69,23 @@
   width: 68%;
   text-align: center;
 }
-.shopImg{
+
+.shopImg {
   width: 50px;
   height: 50px;
   border-radius: 5px;
   margin-bottom: 5px;
 }
-.shopAmount{
+
+.shopAmount {
   display: grid;
   grid-template-columns: 15% 25% 15%;
 }
 #shopTl{
   font-weight: bold;
 }
-.shopNum{
+
+.shopNum {
   height: 24px;
   width: 100%;
   border: none;
@@ -95,14 +112,15 @@
   border-left: 1px solid #c9c9c9;
   border-bottom: 1px solid #c9c9c9;
 }
-#shopTotal{
+
+#shopTotal {
   display: grid;
   grid-template-columns: 80% 20%;
   font-weight: bold;
 }
-.perMax{
+
+.perMax {
   width: 55%;
   text-align: center;
   color: rgb(124, 124, 124);
 }
-

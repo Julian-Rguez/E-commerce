@@ -3,72 +3,156 @@
 	border-top: 0px solid #858585cc;
 	border-left: 0px solid #858585cc;
 	border-right: 0px solid #858585cc;
-	width: 80%;
-	height: 175px;
+	width: 100%;
+	height: 10.9375em;
 	display: grid;
 	grid-template-columns: 2% 36% 45% 15% 2%;
-	margin: 30px;
-  }
-  #colum-img-det{
+	margin: 1.875em;
+}
+
+#colum-img-det {
 	display: grid;
-	grid-template-rows: 75% 25%;  }
-  .conText {
+	grid-template-rows: 75% 25%;
+}
+
+.conText {
 	display: grid;
 	grid-template-rows: 23% 23% 23% 23%;
-  }
-  .text1,
-  .text2 {
+}
+
+.text1,
+.text2 {
 	font-family: "RocknRoll One", sans-serif;
-	height: 18px;
+	height: 1.125em;
 	color: #354f52cc;
 	margin: 10px;
-  }
-  .text1 {
+	font-size: 16px;
+}
+
+.text1 {
 	font-weight: bold;
 	color: green;
-  }
-  .btnCarritofalse, .btnCarritotrue{
-	width: 40px;
-	height: 40px;
-	border-radius: 5px;
+	font-size: 13px;
+}
+
+.btnCarritofalse,
+.btnCarritotrue {
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 0.3125em;
 	border: none;
-  }
-  .btnCarritofalse{
+}
+
+.btnCarritofalse {
 	background-image: url("https://i.ibb.co/vsbHpZR/4.png");
-  }
-  .btnCarritotrue{
+}
+
+.btnCarritotrue {
 	background-image: url("https://i.ibb.co/vsbHpZR/4.png");
 	background-color: #14a44d;
-  }
-  .texts {
+}
+
+.texts {
 	display: grid;
-	grid-template-rows: 15% 50% 18% ;
-  }
-  .texts div {
+	grid-template-rows: 15% 50% 18%;
+}
+
+.texts div {
 	margin: 2px;
-  }
-  .img {
-	height: 125px;
-	width: 160px;
-	border-radius: 20px;
-  }
-  .link {
+}
+
+.img {
+	height: 7.8125em;
+	width: 10em;
+	border-radius: 1.25em;
+}
+
+.link {
 	text-decoration: none;
-  }
-  .cardPart3 {
+}
+
+.cardPart3 {
 	display: grid;
 	grid-template-rows: 40% 5% 10%;
-  }
-  .Desc {
+}
+
+.Desc {
 	color: green;
-  }
-  .DescVal {
+	font-size: 100%;
+}
+
+.DescVal {
 	color: green;
-	font-size: 250%;
-  }
-  #btnDetail{
+	font-size: 180%;
+}
+
+#btnDetail {
 	height: 85%;
-	width: 160px;
+	width: 10em;
 	margin: 3px;
 	text-align: center;
-  }
+}
+
+@media (max-width: 1200px) {
+
+	.img {
+		width: 150px;
+		height: 120px;
+	}
+
+	.text1 {
+		font-size: 11px;
+	}
+
+	.cardPart3 {
+		font-size: 10px;
+		align-items: center;
+	}
+
+	.btnCarritofalse {
+		width: 40px;
+		height: 40px;
+	}
+
+	.btnCarritotrue {
+		width: 40px;
+		height: 40px;
+	}
+
+	.Desc {
+		font-size: 14px;
+	}
+
+	.DescVal {
+		font-size: 14px;
+	}
+	
+}
+
+@media (max-width: 1094px) {
+	body {
+		font-size: 12px;
+	}
+
+	.img {
+		width: 130px;
+		height: 100px;
+	}
+}
+
+@media (max-width: 992px) {
+
+	.text1,
+	.text2 {
+		font-size: 10px;
+	}
+
+	body {
+		font-size: 10px;
+	}
+
+	.img {
+		width: 110px;
+		height: 80px;
+	}
+}

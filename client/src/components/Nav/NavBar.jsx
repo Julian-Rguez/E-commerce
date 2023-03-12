@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import {LinkContainer} from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -10,53 +10,53 @@ import "./NavBar.css";
 import Logo from "../../assets/images/navLogo.png"
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
-const NavBar = ({favorites}) => {
+const NavBar = ({ favorites }) => {
   const { isAuthenticated, user } = useAuth0();
 
   return (
     <>
       <Navbar bg="success" fixed="top" variant="dark">
         <Container>
-        <LinkContainer  to="/home">
-          <Navbar.Brand ><img src={Logo} alt="" className="navLogo"/></Navbar.Brand>
+          <LinkContainer to="/home">
+            <Navbar.Brand ><img src={Logo} alt="" className="navLogo" /></Navbar.Brand>
           </LinkContainer>
           <Nav className="me-auto">
 
-            <LinkContainer  to="/home">
-            <Nav.Link>Home</Nav.Link>
+            <LinkContainer to="/home">
+              <Nav.Link>Home</Nav.Link>
             </LinkContainer>
 
             <LinkContainer to="/about">
-            <Nav.Link>About</Nav.Link>
+              <Nav.Link>About</Nav.Link>
             </LinkContainer>
 
-            <LinkContainer to="/features">
-            <Nav.Link>Features</Nav.Link>
+            <LinkContainer to="/contact">
+              <Nav.Link>Contact</Nav.Link>
             </LinkContainer>
 
-            <LinkContainer to="/pricing">
+            {/* <LinkContainer to="/pricing">
             <Nav.Link>Pricing</Nav.Link>
-            </LinkContainer>
+            </LinkContainer> */}
 
             <LinkContainer to="/shopping">
-            <Nav.Link>Shopping</Nav.Link>
+              <Nav.Link>Shopping</Nav.Link>
             </LinkContainer>
-            
+
             <LinkContainer to="/review">
-            <Nav.Link>Review Pending</Nav.Link>
+              <Nav.Link>Review Pending</Nav.Link>
             </LinkContainer>
 
           </Nav>
-          <FavoriteButton favorites = {favorites}></FavoriteButton>
+          <FavoriteButton favorites={favorites}></FavoriteButton>
           {isAuthenticated ? (
             <img className="navImg" src={user.picture} alt={"No"} />
-            ) : (
-              <img
+          ) : (
+            <img
               className="navImg"
               src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png"
               alt={"No"}
-              />
-              )}
+            />
+          )}
           {isAuthenticated ? (
             <h3 id="autentic">{user.email}</h3>
           ) : (
@@ -64,8 +64,8 @@ const NavBar = ({favorites}) => {
           )}
           {isAuthenticated ? (
             <LogoutButton />
-            ) : (
-              <Link to="/">
+          ) : (
+            <Link to="/">
               <button type="button" className="btn btn-light">
                 Login
               </button>
