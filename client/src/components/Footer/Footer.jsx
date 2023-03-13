@@ -66,7 +66,7 @@ const Footer = () => {
                 <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
                   <h6 className="text-uppercase fw-bold mb-4">
                     <MDBIcon icon="concierge-bell" className="me-3" />
-                    FOODS
+                    DeliGou
                   </h6>
                   <p>
                     Here is the perfect place to connect with costumers and
@@ -101,18 +101,18 @@ const Footer = () => {
                 <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
                   <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Pricing
+                    <a href="https://dos.ny.gov/consumer-protection" className="text-reset" target='_blank'>
+                      Consumer protection
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Settings
+                    <a href="/dataprotection" className="text-reset" target='_blank'>
+                      Personal data protection
                     </a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">
-                      Orders
+                    <a href="/termsandconditions" className="text-reset" target='_blank'>
+                      Terms and Conditions
                     </a>
                   </p>
                   <p>
@@ -149,7 +149,7 @@ const Footer = () => {
           >
             © 2023 Copyright:
             <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-              Foods.com
+              DeliGou.com
             </a>
           </div>
         </MDBFooter>

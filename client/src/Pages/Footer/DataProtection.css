@@ -1,0 +1,20 @@
+.bckrn {
+    background-color: whitesmoke;
+    color: black;
+}
+
+h1 {
+    padding-bottom: 4%;
+    margin-top: 5%;
+
+}
+
+h5 {
+    font-weight: bolder;
+}
+
+.texts {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 14px;
+    padding-left: 5%;
+}

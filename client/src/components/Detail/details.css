@@ -18,10 +18,18 @@
 
    */
 
+.bkng {
+	background-image: url('../../assets/images/fondodeta.jpg');
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
 .container1 {
 	margin: 8%;
 	margin-top: 6%;
-	background-color: rgb(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.3);
 	color: #070707cc;
 	border-color: black;
 	padding: 5px;
@@ -32,9 +40,10 @@
 
 .food_name {
 	margin-bottom: 40px;
-	font-size: 30px;
-	color: #14a44d;
-	font-weight: 900;
+	font-size: 50px;
+	color: #023047;
+	font-weight: 00;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .feature {
@@ -48,7 +57,7 @@
 	display: inline;
 	font-family: 'RocknRoll One', sans-serif;
 	font-size: 20px;
-	color: #131517;
+	color: #023047;
 	font-weight: bold;
 }
 
@@ -62,18 +71,22 @@
 	display: grid;
 	grid-template-columns: 55% 40% 10%;
 }
+
 .row1colum2 {
 	display: grid;
 	grid-template-rows: 30% 70%;
 }
+
 .row1colum21 {
 	display: grid;
 	grid-template-columns: 50% 50%;
 }
+
 .row1colum211 {
 	display: grid;
 	grid-template-rows: 13% 13% 13% 13%;
 }
+
 .row1colum212 {
 	display: grid;
 	grid-template-rows: 13% 13% 13% 13%;
