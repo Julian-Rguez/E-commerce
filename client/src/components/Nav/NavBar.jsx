@@ -58,7 +58,7 @@ const NavBar = () => {
             />
           )}
           {isAuthenticated ? (
-            <h3 id="autentic">{user.email}</h3>
+            <h3 id="autentic">Hola {user.name}</h3>
           ) : (
             <h3 id="autentic">Invited</h3>
           )}
