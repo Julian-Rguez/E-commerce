@@ -1,98 +1,318 @@
-import * as React from "react";
-import MaterialReactTable from "material-react-table";
+import React, { useCallback, useMemo, useState } from 'react';
+import MaterialReactTable from 'material-react-table';
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  MenuItem,
+  Stack,
+  TextField,
+  Tooltip,
+} from '@mui/material';
+import { Delete, Edit } from '@mui/icons-material';
 import { getAllFoods } from "../../../Redux/Actions/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useMemo } from "react";
 
-export default function Foods() {
-  const dispatch = useDispatch();
+
+const Foods = () => {
+  const [createModalOpen, setCreateModalOpen] = useState(false);
   const foods = useSelector((state) => state.foods);
+  const [tableData, setTableData] = useState(() => foods);
+  const [validationErrors, setValidationErrors] = useState({});
+  
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllFoods());
   }, [dispatch]);
   console.log(
     "a",
-    foods.map((food) => food.available)
+    foods
+  )
+  const handleCreateNewRow = (values) => {
+    tableData.push(values);
+    setTableData([...tableData]);
+  };
+
+  const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
+    if (!Object.keys(validationErrors).length) {
+      tableData[row.index] = values;
+      //send/receive api updates here, then refetch or update local table data for re-render
+      setTableData([...tableData]);
+      exitEditingMode(); //required to exit editing mode and close modal
+    }
+  };
+
+  const handleCancelRowEdits = () => {
+    setValidationErrors({});
+  };
+
+  const handleDeleteRow = useCallback(
+    (row) => {
+      if (
+        !window.confirm(`Are you sure you want to delete ${row.getValue('firstName')}`)
+      ) {
+        return;
+      }
+      //send api delete request here, then refetch or update local table data for re-render
+      tableData.splice(row.index, 1);
+      setTableData([...tableData]);
+    },
+    [tableData],
+  );
+
+  const getCommonEditTextFieldProps = useCallback(
+    (cell) => {
+      return {
+        error: !!validationErrors[cell.id],
+        helperText: validationErrors[cell.id],
+        onBlur: (event) => {
+          const isValid =
+            cell.column.id === 'email'
+              ? validateEmail(event.target.value)
+              : cell.column.id === 'age'
+              ? validateAge(+event.target.value)
+              : validateRequired(event.target.value);
+          if (!isValid) {
+            //set validation error for cell if invalid
+            setValidationErrors({
+              ...validationErrors,
+              [cell.id]: `${cell.column.columnDef.header} is required`,
+            });
+          } else {
+            //remove validation error for cell if valid
+            delete validationErrors[cell.id];
+            setValidationErrors({
+              ...validationErrors,
+            });
+          }
+        },
+      };
+    },
+    [validationErrors],
   );
 
   const columns = useMemo(
     () => [
       {
-        accessorKey: "name", //simple recommended way to define a column
-        header: "Name",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'id',
+        header: 'ID',
+        enableColumnOrdering: false,
+        enableEditing: false, //disable editing on this column
+        enableSorting: false,
+        size: 80,
       },
       {
-        accessorFn: (row) => row.available, //alternate way
-        id: "available", //id required if you use accessorFn instead of accessorKey
-        header: "Available", //optional
-        Header: <i style={{ color: "green" }}>Available</i>, //optional custom markup
+        accessorKey: 'name',
+        header: 'Name',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
       },
       {
-        accessorKey: "price", //simple recommended way to define a column
-        header: "Price",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'available',
+        header: 'Available',
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: 'boolean',
+        }),
       },
       {
-        accessorKey: "discount", //simple recommended way to define a column
-        header: "Discount",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'price',
+        header: 'Price',
+        size: 80,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: 'number',
+        }),
       },
       {
-        accessorKey: "type", //simple recommended way to define a column
-        header: "Type",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'discount',
+        header: 'Discount(%)',
+        size: 80,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: 'number',
+        }),
       },
       {
-        accessorKey: "Fat", //simple recommended way to define a column
-        header: "Fat",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'type',
+        header: 'Type',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
       },
       {
-        accessorKey: "Sodium", //simple recommended way to define a column
-        header: "Sodium",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'Fat',
+        header: 'Fat',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
       },
       {
-        accessorKey: "Sugar", //simple recommended way to define a column
-        header: "Sugar",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'Sodium',
+        header: 'Sodium',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
       },
       {
-        accessorKey: "description", //simple recommended way to define a column
-        header: "Description",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'Sugar',
+        header: 'Sugar',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
       },
       {
-        accessorKey: "qualification", //simple recommended way to define a column
-        header: "Qualification",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'description',
+        header: 'Description',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
       },
       {
-        accessorKey: "amount", //simple recommended way to define a column
-        header: "Amount",
-        muiTableHeadCellProps: { sx: { color: "green" } }, //custom props
-        Cell: ({ renderedCellValue }) => <strong>{renderedCellValue}</strong>, //optional custom cell render
+        accessorKey: 'qualification',
+        header: 'Qualification',
+        size: 80,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: 'number',
+        }),
+      },
+      {
+        accessorKey: 'amount',
+        header: 'Amount',
+        size: 80,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: 'number',
+        }),
       },
     ],
-    []
+    [getCommonEditTextFieldProps],
   );
 
   return (
     <>
-      <div>
-        <MaterialReactTable columns={columns} data={foods} />
-      </div>
+      <MaterialReactTable
+        displayColumnDefOptions={{
+          'mrt-row-actions': {
+            muiTableHeadCellProps: {
+              align: 'center',
+            },
+            size: 120,
+          },
+        }}
+        columns={columns}
+        data={tableData}
+        editingMode="modal" //default
+        enableColumnOrdering
+        enableEditing
+        onEditingRowSave={handleSaveRowEdits}
+        onEditingRowCancel={handleCancelRowEdits}
+        renderRowActions={({ row, table }) => (
+          <Box sx={{ display: 'flex', gap: '1rem' }}>
+            <Tooltip arrow placement="left" title="Edit">
+              <IconButton onClick={() => table.setEditingRow(row)}>
+                <Edit />
+              </IconButton>
+            </Tooltip>
+            <Tooltip arrow placement="right" title="Delete">
+              <IconButton color="error" onClick={() => handleDeleteRow(row)}>
+                <Delete />
+              </IconButton>
+            </Tooltip>
+          </Box>
+        )}
+        renderTopToolbarCustomActions={() => (
+          <Button
+            color="secondary"
+            onClick={() => setCreateModalOpen(true)}
+            variant="contained"
+          >
+            Create New Account
+          </Button>
+        )}
+      />
+      <CreateNewAccountModal
+        columns={columns}
+        open={createModalOpen}
+        onClose={() => setCreateModalOpen(false)}
+        onSubmit={handleCreateNewRow}
+      />
     </>
   );
-}
+};
+
+//example of creating a mui dialog modal for creating new rows
+export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
+  const [values, setValues] = useState(() =>
+    columns.reduce((acc, column) => {
+      acc[column.accessorKey ?? ''] = '';
+      return acc;
+    }, {}),
+  );
+
+  const handleSubmit = () => {
+    //put your validation logic here
+    onSubmit(values);
+    onClose();
+  };
+
+  return (
+    <Dialog open={open}>
+      <DialogTitle textAlign="center">Create New Account</DialogTitle>
+      <DialogContent>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem',
+            }}
+          >
+            {columns.map((column) => (
+              <TextField
+                key={column.accessorKey}
+                label={column.header}
+                name={column.accessorKey}
+                onChange={(e) =>
+                  setValues({ ...values, [e.target.name]: e.target.value })
+                }
+              />
+            ))}
+          </Stack>
+        </form>
+      </DialogContent>
+      <DialogActions sx={{ p: '1.25rem' }}>
+        <Button onClick={onClose}>Cancel</Button>
+        <Button color="secondary" onClick={handleSubmit} variant="contained">
+          Create New Account
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
+
+const validateRequired = (value) => !!value.length;
+const validateEmail = (email) =>
+  !!email.length &&
+  email
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    );
+const validateAge = (age) => age >= 18 && age <= 50;
+
+export default Foods;
+
