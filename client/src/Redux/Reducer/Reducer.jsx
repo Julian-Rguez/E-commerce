@@ -17,6 +17,7 @@ const initialState = {
   shopping: [],
   users: [],
   roll: "client",
+  favorites: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -54,24 +55,45 @@ const rootReducer = (state = initialState, action) => {
         allFoods: action.payload,
       };
 
-        case SEARCH:
-            let search = []
-            search = state.allFoods?.filter((e) => e.location.toLowerCase().includes(action.payload.toLowerCase()))
-            return {
-                ...state,
-                foods: [...search]
-            }
-        case GET_DETAILS:
-            return {
-                ...state,
-                details: action.payload
-            }
-        case ADDSHOPPING:
-            return {
-                ...state,
-                shopping:action.payload
-            }
-        default:
-            return state
-    }
-}
+    case SEARCH:
+      let search = [];
+      search = state.allFoods?.filter((e) =>
+        e.location.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        foods: [...search],
+      };
+    case GET_DETAILS:
+      return {
+        ...state,
+        details: action.payload,
+      };
+    case ADDSHOPPING:
+      return {
+        ...state,
+        shopping: action.payload,
+      };
+    case FAVORITES:
+      const filterFavorites = state.favorites?.filter(
+        (fav) => fav.id === action.payload.id
+      );
+      if (filterFavorites.length !== 0) {
+        let favoritesFiltered = state.favorites.filter(
+          (fav) => fav.id !== filterFavorites[0].id
+        );
+        return {
+          ...state,
+          favorites: favoritesFiltered,
+        };
+      } else {
+        return {
+          ...state,
+          favorites: [...state.favorites, action.payload],
+        };
+      }
+    default:
+      return state;
+  }
+};
+export default rootReducer
