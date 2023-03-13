@@ -58,20 +58,7 @@ export default function Shopping() {
   }, [dispatch]);
   const foods = useSelector((state) => state.allFoods);
 
-  const shoping = [{
-    id: "4",
-    name: "BEST BURGERS",
-    image: "https://www.visitconcordca.com/imager/s3-us-west-1_amazonaws_com/concord-2018/craft/Best-Burgers_78c77f7e90fd3bfb1d9860e623e7e9a0.jpg",
-    available: true,
-    type: "Drink",
-    Fat: "Medium",
-    Sodium: "Medium",
-    Sugar: "Medium",
-    price: 9,
-    description: "Delicious homemade burgers",
-    discount: 1,
-    review: []
-  }]
+  
 
   foods.map((food) => {
     if (info.includes(food.id)) {
@@ -81,8 +68,21 @@ export default function Shopping() {
 
   if (valNum[0] === "0") { console.log("borrado"); valNum.shift() };
 
-  let ttl = 0;
-  display.map((food, idx) => ttl += ((food.price * ((100 - food.discount) / 100)) * valNum[idx]))
+  let ttl =0;
+  display.map ((food,idx)=>ttl += ((food.price*((100-food.discount)/100))*valNum[idx]))
+  let names = "";
+  display.map((val)=>{
+    names += val.name + ", "
+  })
+  console.log(ttl);
+  const shoping ={
+    id: "4",
+    name: names,
+    image: "https://i.ibb.co/TqxCZDm/logo.png",
+    description: "Order made to Deli-Gou",
+    discount: 0,
+    price: ttl
+  }
   return (
     <>
       <div className="bkn">
@@ -137,7 +137,7 @@ export default function Shopping() {
             className="btn btn-success"
             onClick={() => {
               axios
-                .post("http://localhost:3001/payment", foods[3])
+                .post("http://localhost:3001/payment", shoping)
                 .then(
                   (res) =>
                     (window.location.href = res.data.response.body.init_point)

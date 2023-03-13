@@ -14,7 +14,6 @@ module.exports = postPayment = async (req, res) => {
                 currency_id: 'USD',
                 picture_url: prod.image,
                 description: prod.description,
-                type: prod.type,
                 unit_price: prod.price,
                 quantity: 1,
              },
