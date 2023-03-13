@@ -10,7 +10,7 @@ import "./NavBar.css";
 import Logo from "../../assets/images/navLogo.png"
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
-const NavBar = ({ favorites }) => {
+const NavBar = () => {
   const { isAuthenticated, user } = useAuth0();
 
   return (
@@ -47,7 +47,7 @@ const NavBar = ({ favorites }) => {
             </LinkContainer>
 
           </Nav>
-          <FavoriteButton favorites={favorites}></FavoriteButton>
+          <FavoriteButton></FavoriteButton>
           {isAuthenticated ? (
             <img className="navImg" src={user.picture} alt={"No"} />
           ) : (
@@ -58,7 +58,7 @@ const NavBar = ({ favorites }) => {
             />
           )}
           {isAuthenticated ? (
-            <h3 id="autentic">{user.email}</h3>
+            <h3 id="autentic">Hola {user.name}</h3>
           ) : (
             <h3 id="autentic">Invited</h3>
           )}

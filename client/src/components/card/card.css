@@ -91,7 +91,13 @@
 	width: 10em;
 	margin: 3px;
 	text-align: center;
-}
+  }
+
+  #favorites-button {
+	all: unset;
+	cursor: pointer;
+	margin-left: 5px;
+  }
 
 @media (max-width: 1200px) {
 

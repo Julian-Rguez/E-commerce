@@ -48,3 +48,21 @@
   .nonFavs{
     color: black;
   }
+
+  #add-Button{
+    display: flex;
+    width:fit-content;
+    padding: 10px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: #14a44d;
+  }
+
+  .container-Button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
