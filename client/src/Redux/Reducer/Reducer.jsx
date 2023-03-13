@@ -1,31 +1,31 @@
 import {
-  UPDATE_ROLL, POST_USER,
+  UPDATE_ROLL,
+  POST_USER,
   ADDSHOPPING,
   GET_FILTER_FOODS,
   GET_ALL_FOODS,
   SEARCH,
   GET_DETAILS,
+  FAVORITES,
   POST_FOOD,
   GET_ALL_USERS,
 } from "../Actions/Constantes";
 
 const initialState = {
-    foods: [],
-    allFoods: [],
-    shopping: [],
-    users:[],
-    allUsers:[],
-    roll:"client"
-}
-
+  foods: [],
+  allFoods: [],
+  shopping: [],
+  users: [],
+  roll: "client",
+};
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-        case UPDATE_ROLL:
-            return {
-                ...state,
-                roll: [...state.roll, action.payload]
-            }
+    case UPDATE_ROLL:
+      return {
+        ...state,
+        roll: [...state.roll, action.payload],
+      };
     case POST_USER:
       return {
         ...state,
@@ -54,28 +54,24 @@ const rootReducer = (state = initialState, action) => {
         allFoods: action.payload,
       };
 
-    case SEARCH:
-      let search = [];
-      search = state.allFoods?.filter((e) =>
-        e.location.toLowerCase().includes(action.payload.toLowerCase())
-      );
-      return {
-        ...state,
-        foods: [...search],
-      };
-    case GET_DETAILS:
-      return {
-        ...state,
-        details: action.payload,
-      };
-    case ADDSHOPPING:
-      return {
-        ...state,
-        shopping: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export default rootReducer;
+        case SEARCH:
+            let search = []
+            search = state.allFoods?.filter((e) => e.location.toLowerCase().includes(action.payload.toLowerCase()))
+            return {
+                ...state,
+                foods: [...search]
+            }
+        case GET_DETAILS:
+            return {
+                ...state,
+                details: action.payload
+            }
+        case ADDSHOPPING:
+            return {
+                ...state,
+                shopping:action.payload
+            }
+        default:
+            return state
+    }
+}
