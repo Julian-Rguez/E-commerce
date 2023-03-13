@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {reactLocalStorage} from 'reactjs-localstorage';
-import {getAllFoods, shopping} from '../../Redux/Actions/Actions'
+import { reactLocalStorage } from 'reactjs-localstorage';
+import { getAllFoods, shopping } from '../../Redux/Actions/Actions'
 import "./shopping.css";
 import NavBar from "../Nav/NavBar";
 import Footer from "../Footer/Footer";
@@ -9,64 +9,64 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 export default function Shopping() {
-  function fnValNum(e){
+  function fnValNum(e) {
     e.preventDefault();
     valNum[e.target.id] = e.target.value;
-    settotal (e.target.value)
+    settotal(e.target.value)
   }
-  function minCant(e){
+  function minCant(e) {
     e.preventDefault();
     const inf = e.target.id.split(",")
     let current = (parseInt(valNum[inf[0]]));
-    if (current>1) {
-      valNum[inf[0]] = (current-1).toString()
-      settotal (valNum[inf[0]])     
+    if (current > 1) {
+      valNum[inf[0]] = (current - 1).toString()
+      settotal(valNum[inf[0]])
       let save = valNum;
       save.unshift("0")
       reactLocalStorage.set("ShoppingCant", save)
-    } 
+    }
   }
-  function masCant(e){
+  function masCant(e) {
     e.preventDefault();
     const inf = e.target.id.split(",")
     let current = (parseInt(valNum[inf[0]]));
-    if (current<(parseInt(inf[1]))) {
-      valNum[inf[0]] = (current+1).toString()
-      settotal (valNum[inf[0]])     
+    if (current < (parseInt(inf[1]))) {
+      valNum[inf[0]] = (current + 1).toString()
+      settotal(valNum[inf[0]])
       let save = valNum;
       save.unshift("0")
       reactLocalStorage.set("ShoppingCant", save)
-    }    
+    }
   }
-  function ShopDelete (e){
-    e.preventDefault();    
-		dispatch (shopping(e.target.id))
-    settt (tt-1)
+  function ShopDelete(e) {
+    e.preventDefault();
+    dispatch(shopping(e.target.id))
+    settt(tt - 1)
   }
 
   const dispatch = useDispatch();
-  const [total,settotal] = useState(10)
+  const [total, settotal] = useState(10)
   const display = []
   const info = (reactLocalStorage.get('Shopping')).split(",");
   const dataCant = (reactLocalStorage.get('ShoppingCant')).split(",")
   dataCant.shift();
-  const [valNum] =useState (dataCant)
-  const [tt,settt] = useState (dataCant.length)
-  
+  const [valNum] = useState(dataCant)
+  const [tt, settt] = useState(dataCant.length)
+
   useEffect(() => {
     dispatch(getAllFoods())
-   },[dispatch]);
-  const foods = useSelector((state) => state.allFoods); 
+  }, [dispatch]);
+  const foods = useSelector((state) => state.allFoods);
 
   
 
-  foods.map ((food)=>{
-    if (info.includes (food.id)){
+  foods.map((food) => {
+    if (info.includes(food.id)) {
       display.push(food)
     }
   })
 
-  if (valNum[0] ==="0") {console.log("borrado");valNum.shift()}; 
+  if (valNum[0] === "0") { console.log("borrado"); valNum.shift() };
 
   let ttl =0;
   display.map ((food,idx)=>ttl += ((food.price*((100-food.discount)/100))*valNum[idx]))
@@ -85,20 +85,21 @@ export default function Shopping() {
   }
   return (
     <>
-      <NavBar></NavBar>
-      <div className="ShopContainer1">
-        <div className="ShopContainer1a">
-          <div className="ShopTittle">Shopping cart ({tt})</div>
-        </div>
-        <div className="header2">
-          <div></div>
-          <div>Description </div>
-          <div>Price</div>
-          <div>Discount</div>
-          <div>Amount</div>
-          <div>Total</div>
-          <div className="btnXTittle">Delete</div>
-        </div><br />
+      <div className="bkn">
+        <NavBar></NavBar>
+        <div className="ShopContainer1">
+          <div className="ShopContainer1a">
+            <div className="ShopTittle">Shopping cart ({tt})</div>
+          </div>
+          <div className="header2">
+            <div></div>
+            <div>Description </div>
+            <div>Price</div>
+            <div>Discount</div>
+            <div>Amount</div>
+            <div>Total</div>
+            <div className="btnXTittle">Delete</div>
+          </div><br />
 
         {display.map((food,idx)=>(       
           <div key={idx} className="header">
@@ -123,16 +124,16 @@ export default function Shopping() {
           </div>
         ))}
 
-        <div id="shopTotal">
-          <div></div>
-          <div>TOTAL: {ttl.toFixed(2)} UDS</div>
-        </div><br /><br />
-        <div className="cbutondetail">
-          <Link to={`/home`} >
-            <button className="btn btn-success"> Go back </button>
-          </Link>
-          <div id="Separate"></div>
-          <button
+          <div id="shopTotal">
+            <div></div>
+            <div>TOTAL: {ttl.toFixed(2)} UDS</div>
+          </div><br /><br />
+          <div className="cbutondetail">
+            <Link to={`/home`} >
+              <button className="btn btn-success"> Go back </button>
+            </Link>
+            <div id="Separate"></div>
+            <button
             className="btn btn-success"
             onClick={() => {
               axios
@@ -145,9 +146,10 @@ export default function Shopping() {
           >
             Start pay
           </button>
-        </div><br />
+          </div><br />
+        </div>
+        <Footer></Footer>
       </div>
-      <Footer></Footer>
     </>
   );
 }
