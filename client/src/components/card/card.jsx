@@ -2,28 +2,22 @@ import React, {useState} from 'react';
 import './card.css';
 import {Link} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { shopping } from '../../Redux/Actions/Actions';
+import { shopping, favorites } from '../../Redux/Actions/Actions';
 import Rating from '@mui/material/Rating';
-import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { green } from '@mui/material/colors';
+import { useSelector } from 'react-redux';
 
-function Card({card,arrayInShopping,update, favorites, setFavorites}) {
+function Card({card,arrayInShopping,update}) {
 	const dispatch = useDispatch(); 
 	const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+	const favoriteState = useSelector(state => state.favorites);
+	const [selected, setSelected] = useState(false)
 
-
-
-	function handleFavoriteChange(e){
-		const filterFavorites= favorites.filter(fav => fav.id === e.id )
-		if(filterFavorites.length !== 0){
-			const newFavorites = favorites.filter(fav => fav.id !== e.id )
-			setFavorites(newFavorites)
-		}
-		else {const newFavorites = [...favorites, e]
-			setFavorites(newFavorites)
-			}
+	function handleFavoriteChange(card){
+		dispatch(favorites(card))
+		setSelected(!selected)
 	}
 
 	function addCar(e){
@@ -43,13 +37,25 @@ function Card({card,arrayInShopping,update, favorites, setFavorites}) {
 		  </div>	
 		  <div className="texts">
 			<div className="text1">
-			 {card.name} ({card.amount})
-			<Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{
+			 {card.name} 
+			 {favoriteState.filter(e => e.id === card.id).length? <button id='favorites-button' onClick={() => handleFavoriteChange(card)}><Favorite sx={{
           color: green[800],
           '&.Mui-checked': {
             color: green[600],
           },
-        }} onChange={() => handleFavoriteChange(card)}/>
+        }}></Favorite></button>  : <button id='favorites-button' onClick={() => handleFavoriteChange(card)}><FavoriteBorder sx={{
+			color: green[800],
+			'&.Mui-checked': {
+			  color: green[600],
+			},
+		  }}></FavoriteBorder></button> }
+
+			{/* <Checkbox {...label} icon={ <FavoriteBorder />} checkedIcon={<Favorite />} sx={{
+          color: green[800],
+          '&.Mui-checked': {
+            color: green[600],
+          },
+        }} onChange={() => handleFavoriteChange(card)}/> */}
 			</div>
 			<div className="conText">
 			  <div className="text2">type: {card.type} </div>

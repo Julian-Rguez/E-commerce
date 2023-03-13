@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {reactLocalStorage} from 'reactjs-localstorage';
-import {UPDATE_ROLL, URL_API, POST_USER,ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS } from './Constantes'
+import {UPDATE_ROLL, URL_API, POST_USER,ADDSHOPPING, GET_ALL_FOODS, GET_FILTER_FOODS, SEARCH, GET_DETAILS, FAVORITES } from './Constantes'
 
 export const postUser = (payload) => async (dispatch) => {
     try {
@@ -89,3 +89,11 @@ export const shopping = (payload) => {
         payload:data
     }
 }
+
+export const favorites = (payload) => {
+    return {
+        type: FAVORITES,
+        payload
+    }
+}
+

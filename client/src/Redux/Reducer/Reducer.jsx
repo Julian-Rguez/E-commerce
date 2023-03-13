@@ -1,4 +1,4 @@
-import {UPDATE_ROLL, POST_USER,ADDSHOPPING, GET_FILTER_FOODS, GET_ALL_FOODS, SEARCH, GET_DETAILS } from '../Actions/Constantes'
+import {UPDATE_ROLL, POST_USER,ADDSHOPPING, GET_FILTER_FOODS, GET_ALL_FOODS, SEARCH, GET_DETAILS, FAVORITES } from '../Actions/Constantes'
 
 
 const initialState = {
@@ -6,7 +6,8 @@ const initialState = {
     allFoods: [],
     shopping: [],
     users:[],
-    roll:"client"
+    roll:"client",
+    favorites:[]
 }
 
 
@@ -51,6 +52,21 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 shopping:action.payload
+            }
+        case FAVORITES:
+            const filterFavorites= state.favorites?.filter(fav => fav.id === action.payload.id )
+            if(filterFavorites.length !== 0){
+               let favoritesFiltered = state.favorites.filter(fav => fav.id !== filterFavorites[0].id )
+                return {
+                    ...state,
+                    favorites: favoritesFiltered
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    favorites: [...state.favorites, action.payload]
+                }
             }
         default:
             return state

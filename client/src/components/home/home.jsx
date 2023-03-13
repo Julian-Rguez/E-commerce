@@ -14,7 +14,7 @@ export default function Home() {
   const foods = useSelector((state) => state.foods);  
   const [order, setorder] = useState ("Ascending")
   const [depe, setdepe] = useState ("Name")  
-  const [favorites, setFavorites] = useState([])
+
   let ordenado = [];
 
   useEffect(() => {
@@ -88,9 +88,8 @@ export default function Home() {
   let foodXPag = foods.slice(ini, cant); 
   return (
     <>
-      <NavBar favorites = {favorites}/>
+      <NavBar/>
       <Cards 
-      favorites = {favorites} setFavorites = {setFavorites}
       foods={foodXPag} 
       total={foods.length}
       paginate={paginate} />  
