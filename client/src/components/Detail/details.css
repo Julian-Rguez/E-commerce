@@ -18,14 +18,6 @@
 
    */
 
-.bkng {
-	background-image: url('../../assets/images/fondodeta.jpg');
-	background-size: cover;
-	width: 100%;
-	height: 100%;
-	display: inline-block;
-}
-
 .container1 {
 	margin: 8%;
 	margin-top: 6%;

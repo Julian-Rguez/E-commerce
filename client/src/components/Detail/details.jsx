@@ -23,7 +23,7 @@ function Details() {
 	return (
 		<>
 			<NavBar />
-			<div className='bkng'>
+			
 				<div className="container1">
 					{details ? (
 						<div className="details">
@@ -85,7 +85,7 @@ function Details() {
 					)}
 				</div>
 				<Footer />
-			</div>
+			
 		</>
 	);
 }
