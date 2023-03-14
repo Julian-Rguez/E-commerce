@@ -58,7 +58,7 @@ export default function Shopping() {
   }, [dispatch]);
   const foods = useSelector((state) => state.allFoods);
 
-  
+
 
   foods.map((food) => {
     if (info.includes(food.id)) {
@@ -68,14 +68,14 @@ export default function Shopping() {
 
   if (valNum[0] === "0") { console.log("borrado"); valNum.shift() };
 
-  let ttl =0;
-  display.map ((food,idx)=>ttl += ((food.price*((100-food.discount)/100))*valNum[idx]))
+  let ttl = 0;
+  display.map((food, idx) => ttl += ((food.price * ((100 - food.discount) / 100)) * valNum[idx]))
   let names = "";
-  display.map((val)=>{
+  display.map((val) => {
     names += val.name + ", "
   })
   console.log(ttl);
-  const shoping ={
+  const shoping = {
     id: "4",
     name: names,
     image: "https://i.ibb.co/TqxCZDm/logo.png",
@@ -85,23 +85,23 @@ export default function Shopping() {
   }
   return (
     <>
-      <div className="bkn">
-        <NavBar></NavBar>
-        <div className="ShopContainer1">
-          <div className="ShopContainer1a">
-            <div className="ShopTittle">Shopping cart ({tt})</div>
-          </div>
-          <div className="header2">
-            <div></div>
-            <div>Description </div>
-            <div>Price</div>
-            <div>Discount</div>
-            <div>Amount</div>
-            <div>Total</div>
-            <div className="btnXTittle">Delete</div>
-          </div><br />
 
-        {display.map((food,idx)=>(       
+      <NavBar></NavBar>
+      <div className="ShopContainer1">
+        <div className="ShopContainer1a">
+          <div className="ShopTittle">Shopping cart ({tt})</div>
+        </div>
+        <div className="header2">
+          <div></div>
+          <div>Description </div>
+          <div>Price</div>
+          <div>Discount</div>
+          <div>Amount</div>
+          <div>Total</div>
+          <div className="btnXTittle">Delete</div>
+        </div><br />
+
+        {display.map((food, idx) => (
           <div key={idx} className="header">
             <img className="shopImg" src={food.image} alt={"No"} />
             <div>
@@ -110,30 +110,30 @@ export default function Shopping() {
             </div>
             <div>{food.price} USD</div>
             <div>{food.discount}%</div>
-            
+
             <div >
               <div className="shopAmount">
-                <button className="shopme" min="1" id={idx} onClick={(e)=>minCant(e)}>-</button>
-                <input disabled = {true}  id={idx} className="shopNum" type="text" value = {valNum[idx]} onChange = {(e)=>fnValNum(e)}></input>              
-                <button className="shopma" id={idx+","+food.amount} onClick={(e)=>masCant(e)}>+</button>
+                <button className="shopme" min="1" id={idx} onClick={(e) => minCant(e)}>-</button>
+                <input disabled={true} id={idx} className="shopNum" type="text" value={valNum[idx]} onChange={(e) => fnValNum(e)}></input>
+                <button className="shopma" id={idx + "," + food.amount} onClick={(e) => masCant(e)}>+</button>
               </div>
               <div className="perMax">(Max {food.amount})</div>
             </div>
-            <div>{((((food.price*((100-food.discount)/100))*1).toFixed(2))*parseInt(valNum[idx])).toFixed(2)} USD</div>
-            <button id={food.id} onClick={(e)=>ShopDelete(e)} className="btnX">❌</button>
+            <div>{((((food.price * ((100 - food.discount) / 100)) * 1).toFixed(2)) * parseInt(valNum[idx])).toFixed(2)} USD</div>
+            <button id={food.id} onClick={(e) => ShopDelete(e)} className="btnX">❌</button>
           </div>
         ))}
 
-          <div id="shopTotal">
-            <div></div>
-            <div>TOTAL: {ttl.toFixed(2)} UDS</div>
-          </div><br /><br />
-          <div className="cbutondetail">
-            <Link to={`/home`} >
-              <button className="btn btn-success"> Go back </button>
-            </Link>
-            <div id="Separate"></div>
-            <button
+        <div id="shopTotal">
+          <div></div>
+          <div>TOTAL: {ttl.toFixed(2)} UDS</div>
+        </div><br /><br />
+        <div className="cbutondetail">
+          <Link to={`/home`} >
+            <button className="btn btn-success"> Go back </button>
+          </Link>
+          <div id="Separate"></div>
+          <button
             className="btn btn-success"
             onClick={() => {
               axios
@@ -146,10 +146,9 @@ export default function Shopping() {
           >
             Start pay
           </button>
-          </div><br />
-        </div>
-        <Footer></Footer>
+        </div><br />
       </div>
+      <Footer></Footer>
     </>
   );
 }
