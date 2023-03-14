@@ -1,26 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  FaBars,
-  FaCommentAlt,
   FaShoppingCart,
   FaUserAlt,
 } from "react-icons/fa";
-import { IoFastFood, IoFastFoodSharp } from "react-icons/io5";
+import { IoFastFoodSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Dropdown from "react-bootstrap/Dropdown";
 import "./Sidebar.css";
 
 const SideBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
-    // {
-    //   path: "/dashboard",
-    //   name: "Dashboard",
-    //   icon: <FaTh />,
-    // },
     {
       path: "foods",
       name: "Foods",

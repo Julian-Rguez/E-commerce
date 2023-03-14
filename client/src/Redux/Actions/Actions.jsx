@@ -26,7 +26,7 @@ export const postUser = (payload) => async (dispatch) => {
 }
   export const postFood = (payload) => async (dispatch) => {
     try {
-      const foodsCreated = await axios.post(`${URL_API}food`, payload)
+      const foodsCreated = await axios.post(`${URL_API}foods`, payload)
       return dispatch({
         type: POST_FOOD,
         payload: foodsCreated
