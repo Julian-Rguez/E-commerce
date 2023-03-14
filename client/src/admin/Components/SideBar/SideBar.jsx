@@ -1,27 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  FaBars,
-  FaCommentAlt,
   FaShoppingCart,
   FaUserAlt,
 } from "react-icons/fa";
-import { IoFastFood, IoFastFoodSharp } from "react-icons/io5";
+import { IoFastFoodSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Dropdown from "react-bootstrap/Dropdown";
 import "./Sidebar.css";
-import logo from "../../../assets/images/navLogo.png";
 
 const SideBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
-    // {
-    //   path: "/dashboard",
-    //   name: "Dashboard",
-    //   icon: <FaTh />,
-    // },
     {
       path: "foods",
       name: "Foods",
@@ -40,27 +27,7 @@ const SideBar = ({ children }) => {
   ];
   return (
     <div className="dashboard">
-      <div style={{ width: isOpen ? "300px" : "100px" }} className="sidebar">
-        <div className="top-section">
-          <h1
-            style={{ display: isOpen ? "block" : "none" }}
-            className="dash-logo"
-          >
-            <img
-              style={{ marginLeft: isOpen ? "10px" : "0px" }}
-              width={"80px"}
-              src={logo}
-              alt="dashboard logo"
-            />
-          </h1>
-          <div
-            style={{ marginLeft: isOpen ? "80px" : "0px" }}
-            className="bars"
-          >
-            <FaBars onClick={toggle} />
-          </div>
-        </div>
-        <hr></hr>
+      <div  className="sidebar">
         <div className="dash-links">
           {menuItem.map((item, index) => (
             <NavLink
@@ -71,7 +38,6 @@ const SideBar = ({ children }) => {
             >
               <div className="icon">{item.icon}</div>
               <div
-                style={{ display: isOpen ? "block" : "none" }}
                 className="link_text"
               >
                 {item.name}
@@ -79,7 +45,6 @@ const SideBar = ({ children }) => {
             </NavLink>
           ))}
         </div>
-        <hr></hr>
         {/* <div
           style={{ width: isOpen ? "90px" : "10px" }}
           className="dropdown"

@@ -16,10 +16,10 @@ import {
 } from "@mui/material";
 import { FormGroup } from "reactstrap";
 import { useState } from "react";
-// import { postAccessories } from "../../../redux/actions/actions";
+import { postFood } from "../../../Redux/Actions/Actions";
 
 export const FoodForm = () => {
-  
+  const dispatch = useDispatch();
   const [ loding, setLonding] = useState(false)
 
   const {
@@ -40,9 +40,9 @@ export const FoodForm = () => {
       price: 0,
       discount: 0,
       type: "",
-      fat: "",
-      sodium: "",
-      sugar: "",
+      Fat: "",
+      Sodium: "",
+      Sugar: "",
       description: "",
       qualification: 0,
       amount: 0,
@@ -60,17 +60,17 @@ export const FoodForm = () => {
       discount: Yup.number().moreThan(
         -1,
         "Discount must be greater or equal to zero"
-      ),
+      ).lessThan(101, "Discount top is 100"),
       type: Yup.string("Enter the type")
         .min(3, "Min. 3 characters")
         .max(50, "Max. 50 characters"),
-      fat: Yup.string("Enter the fat")
+      Fat: Yup.string("Enter the fat")
         .min(3, "Min. 3 characters")
         .max(50, "Max. 50 characters"),
-      sodium: Yup.string("Enter the sodium")
+      Sodium: Yup.string("Enter the sodium")
         .min(3, "Min. 3 characters")
         .max(50, "Max. 50 characters"),
-      sugar: Yup.string("Enter the sugar")
+      Sugar: Yup.string("Enter the sugar")
         .min(3, "Min. 3 characters")
         .max(50, "Max. 50 characters"),
       description: Yup.string()
@@ -78,17 +78,18 @@ export const FoodForm = () => {
         .max(300, "Max. 300 characters")
         .required("Description is required"),
       qualification: Yup.number()
-        .moreThan(0, "Quantity must be greater than zero")
+        .moreThan(0, "Qualification must be greater than zero")
+        .lessThan(6,'Qualification limit is 5')
         .required("Qualification is required"),
       amount: Yup.number()
-        .moreThan(0, "Quantity must be greater than zero")
+        .moreThan(0, "Amount must be greater than zero")
         .required("Amount is required"),
     }),
     onSubmit: (values) => {
       console.log(values);
-      //   dispatch(postAccessories(values));
+        dispatch(postFood(values));
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "New accessesory has been created successfully",
         showConfirmButton: true,
@@ -124,6 +125,7 @@ export const FoodForm = () => {
           Back
         </button>
       </Link>
+      {console.log(values)}
       <div className="form_accessory">
         <label className="form_title">CREATE NEW FOOD</label>
         <form onSubmit={handleSubmit}>
@@ -203,6 +205,7 @@ export const FoodForm = () => {
                 false
               )
             }
+            {...getFieldProps("discount")}
           />
           <TextField
             fullWidth
@@ -218,73 +221,73 @@ export const FoodForm = () => {
             }
             {...getFieldProps("type")}
           >
-            <MenuItem value="mainDish">Main Dish</MenuItem>
-            <MenuItem value="salad">Salad</MenuItem>
-            <MenuItem value="dessert">Dessert</MenuItem>
-            <MenuItem value="appetizer">Appetizer</MenuItem>
-            <MenuItem value="drink">Drink</MenuItem>
+            <MenuItem value="Main dish">Main Dish</MenuItem>
+            <MenuItem value="Salad">Salad</MenuItem>
+            <MenuItem value="Dessert">Dessert</MenuItem>
+            <MenuItem value="Appetizer">Appetizer</MenuItem>
+            <MenuItem value="Drink">Drink</MenuItem>
           </TextField>
           <TextField
             fullWidth
             select
             label="Fat"
-            value={values.fat}
-            name="fat"
+            value={values.Fat}
+            name="Fat"
             margin="normal"
             onChange={handleChange}
-            error={touched.fat && errors.fat ? true : false}
+            error={touched.Fat && errors.Fat ? true : false}
             helperText={
-              touched.fat && errors.fat ? <span>{errors.fat} </span> : false
+              touched.Fat && errors.Fat ? <span>{errors.Fat} </span> : false
             }
-            {...getFieldProps("fat")}
+            {...getFieldProps("Fat")}
           >
-            <MenuItem value="high">High</MenuItem>
-            <MenuItem value="medium">Medium</MenuItem>
-            <MenuItem value="low">Low</MenuItem>
+            <MenuItem value="High">High</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Low">Low</MenuItem>
           </TextField>
           <TextField
             fullWidth
             select
             label="Sodium"
-            value={values.sodium}
-            name="sodium"
+            value={values.Sodium}
+            name="Sodium"
             margin="normal"
             onChange={handleChange}
-            error={touched.sodium && errors.sodium ? true : false}
+            error={touched.Sodium && errors.Sodium ? true : false}
             helperText={
-              touched.sodium && errors.sodium ? (
-                <span>{errors.sodium} </span>
+              touched.Sodium && errors.Sodium ? (
+                <span>{errors.Sodium} </span>
               ) : (
                 false
               )
             }
-            {...getFieldProps("sodium")}
+            {...getFieldProps("Sodium")}
           >
-            <MenuItem value="high">High</MenuItem>
-            <MenuItem value="medium">Medium</MenuItem>
-            <MenuItem value="low">Low</MenuItem>
+            <MenuItem value="High">High</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Low">Low</MenuItem>
           </TextField>
           <TextField
             fullWidth
             select
             label="Sugar"
-            value={values.sugar}
-            name="sugar"
+            value={values.Sugar}
+            name="Sugar"
             margin="normal"
             onChange={handleChange}
-            error={touched.sugar && errors.sugar ? true : false}
+            error={touched.Sugar && errors.Sugar ? true : false}
             helperText={
-              touched.sugar && errors.sugar ? (
-                <span>{errors.sugar} </span>
+              touched.Sugar && errors.Sugar ? (
+                <span>{errors.Sugar} </span>
               ) : (
                 false
               )
             }
-            {...getFieldProps("sugar")}
+            {...getFieldProps("Sugar")}
           >
-            <MenuItem value="high">High</MenuItem>
-            <MenuItem value="medium">Medium</MenuItem>
-            <MenuItem value="low">Low</MenuItem>
+            <MenuItem value="High">High</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Low">Low</MenuItem>
           </TextField>
           <TextField
             fullWidth
